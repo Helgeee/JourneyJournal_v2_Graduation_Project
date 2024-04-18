@@ -9,6 +9,9 @@ export class Collection {
     id: number
 
     @Column()
+    imgCollection: string
+
+    @Column()
     title: string
 
     @CreateDateColumn()

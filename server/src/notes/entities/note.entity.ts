@@ -12,6 +12,9 @@ export class Note {
     @Column({ nullable: true })
     collection: string
 
+    @Column({ nullable: true })
+    imgNote: string
+
     @Column()
     title: string
 
