@@ -6,6 +6,7 @@ import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, Up
 @Entity()
 
 export class User {
+    
     @PrimaryGeneratedColumn()
     id: number
 
@@ -20,6 +21,9 @@ export class User {
 
     @Column({ nullable: true })
     name: string
+
+    @Column({ name: 'type_profile' , nullable: true })
+    type: string
 
     @CreateDateColumn()
     createdAt: Date

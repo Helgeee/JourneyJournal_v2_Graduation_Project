@@ -1,36 +1,43 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './page/home-page/home.component';
-import { MyProfileComponent } from './page/profile-page/profile.component';
-import { MyEmptyPage } from './empty-route/empty-route.component';
-import { MyHeader } from './interface/header/header.component';
-import {  LoginPageComponent } from './auth/login-page/login.component';
-import { CreateNotesComponent } from './page/createNotes-page/create-notes.component';
-import { SettingsComponent } from './page/settings-page/settings.component';
+import { HomeComponent } from './page/home/home.component';
+import {  ProfileComponent } from './page/profile/profile.component';
+import { MyEmptyPage } from './page/empty-route/empty-route.component';
+import { Header,  } from './interface/header/header.component';
+
+import { SettingsComponent } from './page/settings/settings.component';
+import { CreateNotesComponent } from './page/createNotes/create-notes.component';
+import { loginComponent } from './page/login/login.component';
+import { signupComponent } from './page/signup/signup.component';
 
 const routes: Routes = [
-  // {
-  //   path: 'login-page',  
-  //   component: LoginPageComponent ,
-  // },
   {
-    path: 'header',  
-    component: MyHeader ,
+    path: 'login',  
+    component: loginComponent ,
   },
   {
-    path: 'home-page',
+    path: 'singnup' ,
+    component: signupComponent ,
+
+  },
+  {
+    path: 'header',  
+    component: Header ,
+  },
+  {
+    path: 'home',
     component: HomeComponent ,
   },
   {
-    path: 'profile-page',  
-    component: MyProfileComponent,
+    path: 'profile',  
+    component: ProfileComponent,
   },
   {
-    path: 'createNotes-page',
+    path: 'createNotes',
     component: CreateNotesComponent,
   },
   {
-    path: 'settings-page',
+    path: 'settings',
     component: SettingsComponent,
   },
   

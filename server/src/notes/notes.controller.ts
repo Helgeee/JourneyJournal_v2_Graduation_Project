@@ -1,34 +1,60 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UsePipes, ValidationPipe, UseGuards, Req, } from '@nestjs/common';
 import { NotesService } from './notes.service';
 import { CreateNoteDto } from './dto/create-note.dto';
 import { UpdateNoteDto } from './dto/update-note.dto';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
 @Controller('notes')
 export class NotesController {
   constructor(private readonly notesService: NotesService) {}
 
   @Post()
-  create(@Body() createNoteDto: CreateNoteDto) {
-    return this.notesService.create(createNoteDto);
+  @UseGuards(JwtAuthGuard)
+  @UsePipes(new ValidationPipe)
+  create(@Body() createNoteDto: CreateNoteDto , @Req() req) {
+    return this.notesService.create(createNoteDto , +req.user.id );
   }
 
   @Get()
-  findAll() {
-    return this.notesService.findAll();
+  @UseGuards(JwtAuthGuard)
+  @UsePipes(new ValidationPipe)
+  findAll(@Req() req ) {
+    return this.notesService.findAll( +req.user.id);
   }
 
   @Get(':id')
+  @UseGuards(JwtAuthGuard)
   findOne(@Param('id') id: string) {
     return this.notesService.findOne(+id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateNoteDto: UpdateNoteDto) {
+  @UseGuards(JwtAuthGuard)
+  @UsePipes(new ValidationPipe)
+  update(
+    @Param('id') id: string, 
+    @Body() updateNoteDto: UpdateNoteDto) {
     return this.notesService.update(+id, updateNoteDto);
   }
 
   @Delete(':id')
+  @UseGuards(JwtAuthGuard)
+  @UsePipes(new ValidationPipe)
   remove(@Param('id') id: string) {
     return this.notesService.remove(+id);
   }
+  
+  // @Get('pagination')
+  // @UseGuards(JwtAuthGuard)
+  // findAllWithPagination(
+  // @Req() req , 
+  // @Query('page') page: number , 
+  // @Query('limit') limit: number , ) {
+  //   return this.notesService.findAllWithPagination(
+  //     +req.user.id ,
+  //      +page ,
+  //       +limit
+  //     )
+  // } 
+
 }

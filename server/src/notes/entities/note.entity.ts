@@ -1,34 +1,35 @@
+
 import { Collection } from "src/collection/entities/collection.entity";
+
+
 import { User } from "src/user/entities/user.entity";
-import { Column, CreateDateColumn,  Entity,     JoinColumn,     ManyToOne,     PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn,  Entity,     JoinColumn,     ManyToOne,        PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
 
 export class Note {
 
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn({ name: 'note_id'})
     id: number
 
-    @Column({ nullable: true })
-    collection: string
+    @Column({ name: 'img_note' , nullable: true })
+    img: string
 
-    @Column({ nullable: true })
-    imgNote: string
-
-    @Column()
+    @Column( { nullable: true } )
     title: string
-
-    @Column({ nullable: true })
-    coordinate: string
     
-    @Column({ nullable: true })
+    @Column({  nullable: true })
     text: string
+
+    @Column({  nullable: true })
+    coordinate: string
 
     @CreateDateColumn()
     createdAt: Date
 
     @UpdateDateColumn()
     updateAt: Date
+
 
     //связи многие к одному пользователю
     
@@ -43,4 +44,11 @@ export class Note {
     collections: Collection
 
    
+     // связь один к одному координаты
+
+    // @OneToOne(() => Map, (map) => map.note  ,{
+    //     onDelete:'CASCADE',
+    // })
+    // @JoinColumn({ name: 'coordinate'  })
+    // map: Map
 }

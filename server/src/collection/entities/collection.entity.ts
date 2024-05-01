@@ -1,3 +1,4 @@
+
 import { Note } from "src/notes/entities/note.entity";
 import { User } from "src/user/entities/user.entity";
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
@@ -5,14 +6,15 @@ import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, Pri
 @Entity()
 
 export class Collection {
+    
     @PrimaryGeneratedColumn( { name: 'collection_id'})
     id: number
 
     @Column()
-    imgCollection: string
-
-    @Column()
     title: string
+
+    @Column({ name: 'img_collection' , nullable : true })
+    img: string
 
     @CreateDateColumn()
     createdAt: Date
@@ -28,6 +30,6 @@ export class Collection {
 
     //Связи к заметкам    
 
-    @OneToMany(()=> Note,(note) => note.collection )
+    @OneToMany(()=> Note,(note) => note.collections)
     notes: Note[]
 }
