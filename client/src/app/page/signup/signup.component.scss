@@ -1,82 +1,84 @@
-.modalIndex {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    // background-color: #f1f1f1;
-    // padding: 16px;
-    // border: 1px solid #ccc;
-
-
-    background-color: #fff;
-    width: 450px;
-    height: 600px;
-    padding: 20px;
-    border: 1px solid ;
-    z-index: 9999;
-    &__content{
-      margin-top: 20px;
-      display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        
-      gap: 10px;
-      // text-transform: uppercase;
-     
-    }
-    
-    &__modalWin{
-      width: 330px;
-      height: 50px;
-      border-radius: 10px;
+.index__container { 
+    display: grid;
+    margin: 0 auto;
+    max-width: 1360px;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 2fr;
+    height: 100vh;
       
-      border-radius: 10px;
-      border: 1px solid #AFB1B6;
-      background: rgba(44, 32, 32, 0);
 
-      margin-left: auto;
-      margin-right: auto;
 
-    }
-    &__btn{
-      margin-top: 10px;
-      width: 325px;
-      height: 40px;
-      border: 2px solid ;
-      border-radius: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer; 
-    }&__minititle{
-      float: left;
-      margin-left: 40px;
-    }&__button{
-      margin-top: 20px;
-    }&__checkbox{
-      margin-top: 3px;
-      height: 20px;
-      width: 20px;
-    }&__modalTwo{
-      margin-top: 5px;
-      display: grid;
-      gap: 20px;
-      justify-content: center;
-      margin-bottom: 100px;
+}
+
+.index{
+  &__logo{
+      // background: none;       
+      left: 95px;
+      width: 589px;
+      height: 388px;
+      // margin-bottom: 10px;
+  }
+  &__content{
     
-    }
+    display: grid;
+    margin-top: 5px;
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 100px;
+   
     
   }
+  &__title {
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Mulish", sans-serif;
+    justify-content: space-between;
+    align-items: left;
+    flex-direction: column; 
+
+  }
+  &__win{
+    font-family: "Mulish", sans-serif;
+    width: 325px;
+    height: 50px;
+    border-radius: 10px;
+    
   
-
-  
-
- 
-
-
-  .modalIndex.visible {
+  }
+  &__btn{
     display: block;
+    margin-top: 30px;
+  }&__bigTitle{
+    font-size: 30px;
   }
+  
+
+  
+  // &__btns{
+  // display: flex;
+  // justify-content: space-between;
+  // flex-direction: column;
+  // }
+  // &__btns a{
+  //     text-decoration: none;
+  //     color: #fff;
+  // }
+  // &__socialbtn{
+  //     display: flex;      
+  //     align-items: left;
+  //     flex-direction: column;
+  //     margin-left: 20px;        
+  // }
+  // &__socialbtns a{
+  //     text-decoration: none;
+  // }    
+}
+
+
+
+
 
 

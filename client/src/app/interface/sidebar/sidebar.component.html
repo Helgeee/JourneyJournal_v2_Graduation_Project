@@ -131,8 +131,11 @@
 
     <ng-template #isNotAuth>
       <ul class="indexbar">
-          <li><a class="indexbar-element"[routerLink]="['signup']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Регистрация </a></li>
-          <li><a class="indexbar-element" [routerLink]="['login']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Войти </a></li>
+        
+        <li><a class="indexbar-element" [routerLink]="['login']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Войти </a></li>
+
+        <li><a class="indexbar-element"[routerLink]="['signup']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Регистрация </a></li>
+         
       </ul>
     </ng-template>
 

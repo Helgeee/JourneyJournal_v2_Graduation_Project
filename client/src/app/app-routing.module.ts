@@ -8,7 +8,8 @@ import { Header,  } from './interface/header/header.component';
 import { SettingsComponent } from './page/settings/settings.component';
 import { CreateNotesComponent } from './page/createNotes/create-notes.component';
 import { loginComponent } from './page/login/login.component';
-import { signupComponent } from './page/signup/signup.component';
+import { SignupComponent } from './page/signup/signup.component';
+
 
 const routes: Routes = [
   {
@@ -16,8 +17,8 @@ const routes: Routes = [
     component: loginComponent ,
   },
   {
-    path: 'singnup' ,
-    component: signupComponent ,
+    path: 'signup' ,
+    component: SignupComponent ,
 
   },
   {
@@ -51,7 +52,8 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

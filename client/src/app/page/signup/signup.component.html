@@ -1,60 +1,94 @@
-<div class="register-modals">
 
-    <div  id="modal1" class="regist-modals">
-        <div class="modalIndex__content">
+<div class="index__container">
+
+        <div class="index__logo">
+            <img class="#"  src="/client/src/assets/img/logo/JJ-03.svg" alt="">
+        </div>
+        
+
+        <form [formGroup] ="userData" 
+              (ngSubmit)="onSubmit()"
+              class="index__content">
             
-            <h3 class=" modalIndex__minititle title__fs18regular">Создать профиль</h3>
-            
-            <div class="modalIndex__minititle title__fs16">
-                Логин
-            </div>
+            <h1 class="index__bigTitle">  Создать профиль</h1>
 
-            <input id="login" class=" modalIndex__modalWin" type="text" name="username" placeholder=" Логин">
-
-            
-            <div class="modalIndex__minititle title__fs16">
-                Почта
-            </div>
-
-            <input id="email" class="modalIndex__modalWin" type="text" name="email" placeholder=" Email ">
-
-            
-            <div class="modalIndex__minititle title__fs16">
-                Пароль
-            </div>
-            <input id="password"  class="modalIndex__modalWin" type="password" name="password" placeholder=" Пароль">
-
-            <div class=" modalIndex__minititle title__fs16">
-                Повторите пароль
-            </div>
-            <input id= "confirmPassword" class="modalIndex__modalWin" type="password" name="password" placeholder=" Пароль">
-                
             <div>
-                <input class="modalIndex__checkbox modalIndex__minititle" type="checkbox"> <div class="modalIndex__minititle">Согласен(а) с политикой</div>  
+                <label class="index__title"> Почта </label> <br>
+                <input 
+                formControlName="email"
+                required
+                id="email" class="index__win" type="text" name="email" placeholder=" Email ">
+
+                <div *ngIf="userData.controls['email'].invalid &&
+                    ( userData.controls['email'].dirty || userData.controls['email'].touched)"
+                     class="text-error">
+
+                <div *ngIf="userData.controls['email'].hasError('required') ">Email is required</div>
+                <div *ngIf="userData.controls['email'].hasError('email')">Please enter a valid email adress</div>
+                </div>
+
             </div>
             
-            <button id="btnNext" class="button  modalIndex__button title__fs20bold" >Создать аккаунт</button>
-        </div>
-    </div>
 
-    <div id="modal2" class="regist-modals">
-        <div class="modalIndex__content">
+            <div>
+                <label class="index__title"> Логин </label> <br>
+                <input formControlName="username"
+                required
+                 id="login" class="index__win" type="text" name="username" placeholder=" Логин">
+
+                 <div **ngIf="userData.controls['email'].invalid " class="text-error">
+
+                 </div>
+
+            </div>
+            
+
+            <div>
+                <label class="index__title"> Пароль </label> <br>
+                <input formControlName="password"
+                required
+                id="password"  class="index__win" type="password" name="password" placeholder=" Пароль">
+
+                
+                <div *ngIf="userData.controls['password'].invalid &&
+                    ( userData.controls['password'].dirty || userData.controls['email'].touched)"
+                     class="text-error">
+
+                    <div *ngIf="userData.controls['password'].hasError('required') ">Email is required</div>
+
+                    <div *ngIf="userData.controls['password'].hasError('minLength')">Please enter a valid password (6)</div>
+                </div>
+            </div>
+
+            
+
+            <div>
+                <input class=" imput signup__checkbox signup__minititle" type="checkbox"> <div class="modalIndex__minititle">Согласен(а) с политикой</div>  
+            </div>
+            
+            <button 
+            [disabled]="!userData.valid" 
+            id="btnNext" class=" index__btn button main " > Подтвердите </button>
+            
+        </form>
+    
+        <!-- <div class="signup__content">
         <div>
-            <h3 class="modalIndex__minititle title__fs18regular"> Создать профиль</h3>
-            <p class="modalIndex__minititle title__fs16" > Выберите тип профиля, который вы хотели бы cоздать</p>
+            <h3 class="signup__minititle title__fs18regular"> Создать профиль</h3>
+            <p class="signup__minititle title__fs16" > Выберите тип профиля, который вы хотели бы cоздать</p>
 
         </div>
             
-        <div class="modalIndex__modalTwo">
-            <button id="extrovert" class=" modalIndex__btn title title__fs16" > Экстраверт </button>
-            <button  id="Ambiveter" class=" modalIndex__btn title title__fs16" > Амбиветр </button>
-            <button id="Интроверт" class=" modalIndex__btn title title__fs16" > Интроверт </button>
+        <div class="signup__modalTwo">
+            <button id="extrovert" class="signup__btn title title__fs16" > Экстраверт </button>
+            <button  id="Ambiveter" class=" signup__btn title title__fs16" > Амбиветр </button>
+            <button id="Интроверт" class=" signup__btn title title__fs16" > Интроверт </button>
         </div>
             
 
-            <button id="btnClose"  class="button modalIndex__button title__fs20bold"> создать аккаунт</button>
-        </div>
-    </div>
+            <button id="btnClose"  class="button main"> создать аккаунт</button>
+        
+    </div> -->
 
 
 </div>
