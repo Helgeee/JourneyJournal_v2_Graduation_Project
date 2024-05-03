@@ -1,8 +1,8 @@
+<!-- 
+*ngIf="isAuth; 
+*ngIf="this.authService.isAuthSig(); -->
 
-
-
-
-    <nav  *ngIf="isAuth; else isNotAuth "
+    <nav *ngIf="isAuth;  else isNotAuth "
     class="sidebar-menu">
         <ul>
             <li>
@@ -130,12 +130,12 @@
     </nav>
 
     <ng-template #isNotAuth>
-      <ul class="indexbar">
-        
-        <li><a class="indexbar-element" [routerLink]="['login']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Войти </a></li>
+        <ul class="indexbar">
+          
+          <li><a class="indexbar-element" [routerLink]="['login']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Войти </a></li>
 
-        <li><a class="indexbar-element"[routerLink]="['signup']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Регистрация </a></li>
-         
-      </ul>
+          <li><a class="indexbar-element"[routerLink]="['signup']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Регистрация </a></li>
+          
+        </ul>
     </ng-template>
 

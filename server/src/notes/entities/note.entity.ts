@@ -22,7 +22,7 @@ export class Note {
     text: string
 
     @Column({  nullable: true })
-    coordinate: string
+    coordinate: number 
 
     @CreateDateColumn()
     createdAt: Date

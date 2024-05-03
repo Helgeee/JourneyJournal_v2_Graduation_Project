@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,25 +9,27 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class loginComponent {
   
+  
   userData: FormGroup
 
-  constructor(){
-    this.userData = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
+  //Исправить отображение страницы
 
-      username:  new FormControl('', [Validators.required , Validators.minLength(3)] ),
+        constructor(private readonly authService: AuthService){
+          this.userData = new FormGroup({
+              email: new FormControl('', [Validators.required, Validators.email]),
 
-      password:  new FormControl('', [Validators.required , Validators.minLength(6)] ),
-    })
-  }
+              username:  new FormControl('', [Validators.required , Validators.minLength(2)] ),
 
-  onSubmit(){
-   
-    if(this.userData.valid){
-      console.log(this.userData.value)
-    }else {
-      console.log("Not valid")
-      PageTransitionEvent
-  }
-}
+              password:  new FormControl('', [Validators.required , Validators.minLength(6)] ),
+          })
+        }
+
+        onSubmit(){
+        
+          if(this.userData.valid){
+            this.authService.login(this.userData.value)
+          }else {
+            console.log("Not valid")
+        }
+      }
 }

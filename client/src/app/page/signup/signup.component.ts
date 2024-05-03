@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { minLength } from 'class-validator';
+
+import { AuthService } from '../../services/auth.service';
 
 
 
@@ -13,7 +14,9 @@ export class SignupComponent{
 
   userData: FormGroup
 
-  constructor(){
+   //Исправить отображение страницы
+
+  constructor(private readonly authService: AuthService){
     this.userData = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
 
@@ -26,10 +29,10 @@ export class SignupComponent{
   onSubmit(){
    
     if(this.userData.valid){
-      console.log(this.userData.value)
+      this.authService.signUp(this.userData.value) // 
     }else {
       console.log("Not valid")
-      PageTransitionEvent
+      
   }
 }
 }

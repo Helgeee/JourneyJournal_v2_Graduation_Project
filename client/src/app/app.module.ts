@@ -15,6 +15,8 @@ import { CreateNotesComponent } from './page/createNotes/create-notes.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './page/signup/signup.component';
 import { loginComponent } from './page/login/login.component';
+import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -24,6 +26,9 @@ import { loginComponent } from './page/login/login.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    CommonModule
   ],
   declarations: [
     AppComponent,

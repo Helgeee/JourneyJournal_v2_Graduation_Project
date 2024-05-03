@@ -16,7 +16,7 @@ export class NotesService {
     private readonly notesRepository: Repository<Note>,
   ) {}
 
-/// создание заметки (Не работает говнище)
+/// создание заметки 
 
   async create(createNoteDto: CreateNoteDto , id: number) { ///проверить
     const newNote = {
@@ -32,7 +32,7 @@ export class NotesService {
 
     if(!newNote) throw new BadRequestException(' Something went wrong... ')
 
-    return await this.notesRepository.save(newNote) // ошибка
+    return await this.notesRepository.save(newNote) 
 
    }
 
@@ -73,12 +73,11 @@ export class NotesService {
 
   async  update(id: number, updateNoteDto: UpdateNoteDto) {
     const notes = await this.notesRepository.findOne({
-    where: {id},
-
+    where: { id },
   })
   if(!notes)  throw new NotFoundException('Notes N F')
 
-  return await this.notesRepository.update( +id , updateNoteDto); // ошибка
+  return await this.notesRepository.update( id , updateNoteDto ) ; 
     
   }
 

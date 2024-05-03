@@ -1,9 +1,10 @@
-import {BadRequestException, Injectable } from '@nestjs/common';
+import {BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateCollectionDto } from './dto/create-collection.dto';
 import { UpdateCollectionDto } from './dto/update-collection.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Collection } from './entities/collection.entity';
 import { Repository } from 'typeorm';
+
 
 // npm start run:dev
 
@@ -38,27 +39,53 @@ export class CollectionService {
     
   }
 
-
+  // поиск всех коллекций пользователя
   async findAll(id: number) {
     return await this.collectionRepository.find({
       where:{
         user: {id},
       },
-      // relations: { 
-      //   notes: true,
-      // },
+      relations: { 
+        notes: true,
+      },
     })
   }
 
+   // поиск коллекций пользователя
+
   async findOne(id: number) {
-    return `This action returns a #${id} collection`;
+    const collection = await this.collectionRepository.findOne({
+      where: { id },
+      relations: {
+        user: true,
+        notes: true,
+      },
+    })
+    if(!collection)  throw new  NotFoundException('Collections not found')
+    return collection ;
   }
+
+  // обновление коллекций
 
   async update(id: number, updateCollectionDto: UpdateCollectionDto) {
-    return updateCollectionDto;
+    const collection = await this.collectionRepository.findOne({
+      where: { id } ,
+      
+    })
+    if(!collection)  throw new  NotFoundException('Collections not found')
+    return await this.collectionRepository.update( id , updateCollectionDto) ;
   }
 
+
+  // удаление коллекции
+
   async remove(id: number) {
-    return id;
+    const collection = await this.collectionRepository.findOne({
+      where: { id },
+  })
+      if(!collection)  throw new NotFoundException('Notes N F')
+
+    return await this.collectionRepository.delete(id)
   }
+
 }
