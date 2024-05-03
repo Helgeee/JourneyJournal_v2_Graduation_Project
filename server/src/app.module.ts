@@ -31,7 +31,7 @@ import { AuthModule } from './auth/auth.module';
           synchronize: true,
           entities: [ __dirname + '/**/*.entity{ .js , .ts}'],
       }),
-      inject: [ConfigService],
+      inject: [ConfigService]
     }),
 
     CollectionModule,

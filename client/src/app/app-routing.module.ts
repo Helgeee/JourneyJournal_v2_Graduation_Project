@@ -26,7 +26,8 @@ const routes: Routes = [
     component: Header ,
   },
   {
-    path: 'home',
+    path: '',
+    title: 'home',
     component: HomeComponent ,
   },
   {

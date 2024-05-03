@@ -10,7 +10,6 @@ import { HomeComponent } from './page/home/home.component';
 import {  SideBarComponent } from './interface/sidebar/sidebar.component';
 import { Header } from './interface/header/header.component';
 import { SettingsComponent } from './page/settings/settings.component';
-import { AuthLayoutComponent } from './auth/shared/layouts/auth-layout/auth-layout.component';
 import { CreateNotesComponent } from './page/createNotes/create-notes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './page/signup/signup.component';
@@ -38,7 +37,6 @@ import { CommonModule } from '@angular/common';
     SideBarComponent,
     Header,
     SettingsComponent,
-    AuthLayoutComponent,
     CreateNotesComponent
   ],
   
