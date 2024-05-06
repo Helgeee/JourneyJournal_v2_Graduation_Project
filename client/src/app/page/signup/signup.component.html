@@ -7,70 +7,73 @@
         
 
         <form [formGroup] ="userData" 
-              (ngSubmit)="onSubmit()"
-              class="index__content">
-            
-            <h1 class="index__bigTitle textColor ">  Создать профиль</h1>
+              (ngSubmit)="onSubmit()">
 
-            <div>
-                <label class="index__title"> Почта </label> <br>
-                <input 
-                formControlName="email"
-                required
-                id="email" class="index__win" type="text" name="email" placeholder=" Email ">
+        <div class="index__content">
+                    
+                    <h1 class="index__bigTitle textColor ">  Создать профиль</h1>
 
-                <div *ngIf="userData.controls['email'].invalid &&
-                    ( userData.controls['email'].dirty || userData.controls['email'].touched)"
-                     class="text-error">
+                    <div>
+                        <label class="index__title"> Почта </label> <br>
+                        <input 
+                        formControlName="email"
+                        required
+                        id="email" class="index__win" type="text" name="email" placeholder=" Email ">
 
-                <div *ngIf="userData.controls['email'].hasError('required') ">Email is required</div>
-                <div *ngIf="userData.controls['email'].hasError('email')">Please enter a valid email adress</div>
-                </div>
+                        <div *ngIf="userData.controls['email'].invalid &&
+                            ( userData.controls['email'].dirty || userData.controls['email'].touched)"
+                            class="text-error">
 
-            </div>
-            
+                        <div *ngIf="userData.controls['email'].hasError('required') ">Email is required</div>
+                        <div *ngIf="userData.controls['email'].hasError('email')">Please enter a valid email adress</div>
+                        </div>
 
-            <div>
-                <label class="index__title"> Логин </label> <br>
-                <input formControlName="username"
-                required
-                 id="login" class="index__win" type="text" name="username" placeholder=" Логин">
+                    </div>
+                    
 
-                 <div **ngIf="userData.controls['email'].invalid " class="text-error">
+                    <div>
+                        <label class="index__title"> Логин </label> <br>
+                        <input formControlName="username"
+                        required
+                        id="login" class="index__win" type="text" name="username" placeholder=" Логин">
 
-                 </div>
+                        <div **ngIf="userData.controls['email'].invalid " class="text-error">
 
-            </div>
-            
+                        </div>
 
-            <div>
-                <label class="index__title"> Пароль </label> <br>
-                <input formControlName="password"
-                required
-                id="password"  class="index__win" type="password" name="password" placeholder=" Пароль">
+                    </div>
+                    
 
+                    <div>
+                        <label class="index__title"> Пароль </label> <br>
+                        <input formControlName="password"
+                        required
+                        id="password"  class="index__win" type="password" name="password" placeholder=" Пароль">
+
+                        
+                        <div *ngIf="userData.controls['password'].invalid &&
+                            ( userData.controls['password'].dirty || userData.controls['email'].touched)"
+                            class="text-error">
+
+                            <div *ngIf="userData.controls['password'].hasError('required') ">Email is required</div>
+
+                            <div *ngIf="userData.controls['password'].hasError('minLength')">Please enter a valid password (6)</div>
+                        </div>
+                    </div>
+
+                    
+
+                    <div>
+                        <input class=" imput signup__checkbox signup__minititle" type="checkbox"> <div class="modalIndex__minititle">Согласен(а) с политикой</div>  
+                    </div>
+                    
+                    <button 
+                    [disabled]="!userData.valid" 
+                    id="btnNext" class=" index__btn button main " > Подтвердите </button>
+                    
                 
-                <div *ngIf="userData.controls['password'].invalid &&
-                    ( userData.controls['password'].dirty || userData.controls['email'].touched)"
-                     class="text-error">
 
-                    <div *ngIf="userData.controls['password'].hasError('required') ">Email is required</div>
-
-                    <div *ngIf="userData.controls['password'].hasError('minLength')">Please enter a valid password (6)</div>
-                </div>
             </div>
-
-            
-
-            <div>
-                <input class=" imput signup__checkbox signup__minititle" type="checkbox"> <div class="modalIndex__minititle">Согласен(а) с политикой</div>  
-            </div>
-            
-            <button 
-            [disabled]="!userData.valid" 
-            id="btnNext" class=" index__btn button main " > Подтвердите </button>
-            
-        </form>
     
         <!-- <div class="signup__content">
         <div>
@@ -90,6 +93,4 @@
         
     </div> -->
 
-
-</div>
 

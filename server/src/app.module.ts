@@ -1,14 +1,21 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UserModule } from './user/user.module';
-import { NotesModule } from './notes/notes.module';
 
 import { ConfigModule, ConfigService} from '@nestjs/config';
 import { TypeOrmModule, } from '@nestjs/typeorm';
+
+
+import { UserModule } from './user/user.module';
+import { NotesModule } from './notes/notes.module';
 import { CollectionModule } from './collection/collection.module';
 import { AuthModule } from './auth/auth.module';
- 
+
+import { SubscriptionModule } from './upcoming/subscription/subscription.module';
+import { MessageModule } from './upcoming/message/message.module';
+import { MapsModule } from './upcoming/maps/maps.module';
+
+
 @Module({
   imports: 
   [
@@ -35,9 +42,15 @@ import { AuthModule } from './auth/auth.module';
     }),
 
     CollectionModule,
+
+    MapsModule,
+
+    MessageModule,
+
+    SubscriptionModule,
    ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService ],
 })
 export class AppModule {}
 
