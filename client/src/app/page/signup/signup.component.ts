@@ -3,8 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { AuthService } from '../../services/auth.service';
 
-
-
 @Component({
   selector: 'signup',
   templateUrl: './signup.component.html',

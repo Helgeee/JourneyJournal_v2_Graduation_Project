@@ -5,7 +5,7 @@ import { UpdateMapDto } from './dto/update-map.dto';
 @Injectable()
 export class MapsService {
   create(createMapDto: CreateMapDto) {
-    return 'This action adds a new map';
+    return CreateMapDto;
   }
 
   findAll() {
@@ -17,7 +17,7 @@ export class MapsService {
   }
 
   update(id: number, updateMapDto: UpdateMapDto) {
-    return `This action updates a #${id} map`;
+    return UpdateMapDto ;
   }
 
   remove(id: number) {

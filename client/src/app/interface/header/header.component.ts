@@ -8,12 +8,15 @@ import { AuthService } from '../../services/auth.service';
 })
 
 export class Header implements OnInit {
-    isAuth = false
+    isAuth = true //отображение на странице
     
+
+
+    //Необходимо настроить отображение Header и sidebar при логине и выходу
     constructor(public AuthService: AuthService){}
 
     
-
+    // свойство для отображения
     ngOnInit(): void {
         
     }

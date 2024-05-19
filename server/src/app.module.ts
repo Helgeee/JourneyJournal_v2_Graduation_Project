@@ -11,9 +11,11 @@ import { NotesModule } from './notes/notes.module';
 import { CollectionModule } from './collection/collection.module';
 import { AuthModule } from './auth/auth.module';
 
-import { SubscriptionModule } from './upcoming/subscription/subscription.module';
-import { MessageModule } from './upcoming/message/message.module';
-import { MapsModule } from './upcoming/maps/maps.module';
+
+
+import { MapsModule } from './maps/maps.module';
+import { MessageModule } from './message/message.module';
+import { SubscriptionModule } from './subscription/subscription.module';
 
 
 @Module({
@@ -22,7 +24,16 @@ import { MapsModule } from './upcoming/maps/maps.module';
     UserModule, 
     NotesModule,
     CollectionModule,
+    
     AuthModule,
+
+    MapsModule,
+
+    CollectionModule,
+
+    SubscriptionModule,
+
+    MessageModule,
 
     ConfigModule.forRoot( {isGlobal: true} ),
 
@@ -41,13 +52,7 @@ import { MapsModule } from './upcoming/maps/maps.module';
       inject: [ConfigService]
     }),
 
-    CollectionModule,
-
-    MapsModule,
-
-    MessageModule,
-
-    SubscriptionModule,
+    
    ],
   controllers: [AppController],
   providers: [AppService ],

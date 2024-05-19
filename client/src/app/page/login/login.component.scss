@@ -1,17 +1,14 @@
-.index__container { 
-  
-      display: grid;
-      margin: 0 auto;
-      max-width: 1360px;
-      padding: 0;
-      display: grid;
-      place-items: center;
-      grid-template-columns: 1fr 2fr;
-      height: 100vh;
-        
-
-  
+.index__login { 
+  display: grid;
+  margin: 0 auto;
+  max-width: 1360px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
 }
+
 
 .index{
     &__logo{
@@ -22,27 +19,26 @@
         // margin-bottom: 10px;
     }
     &__content{
-      
-      display: grid;
-      margin-top: 5px;
-      display: grid;
-      gap: 20px;
+      gap: 20px;  
+      display: flex;
+      flex-direction: column;
       justify-content: center;
-      margin-bottom: 100px;  
-            
-          
+      align-items: center;
+      margin: auto;
+      
     }
   
     &__bigTitle{
       font-family: "Mulish", sans-serif;
     }
     &__title {
-      font-weight: 400;
-      font-size: 14px;
+      font-weight: 500;
+      font-size: 18px;
       font-family: "Mulish", sans-serif;
       justify-content: space-between;
       align-items: left;
       flex-direction: column; 
+      color: rgba(97, 100, 107, 1);
 
       // margin-left: 50px;
     
@@ -53,10 +49,15 @@
       width: 325px;
       height: 50px;
       border-radius: 10px;
-
+  
       margin-top: 5px;
-      // margin-left: 40px;
-      
+      font-family: "Mulish", sans-serif;
+      border: 2px solid rgba(97, 100, 107, 1);
+      outline: none; // Убираем выделение
+      border-radius: 10px;
+      background-color: transparent;
+  
+      padding-left: 10px; // Отступ слева 
     
     }
     &__btn{
@@ -67,28 +68,6 @@
     }
     
 
-    
-    // &__btns{
-    // display: flex;
-    // justify-content: space-between;
-    // flex-direction: column;
-    // }
-    // &__btns a{
-    //     text-decoration: none;
-    //     color: #fff;
-    // }
-    // &__socialbtn{
-    //     display: flex;      
-    //     align-items: left;
-    //     flex-direction: column;
-    //     margin-left: 20px;        
-    // }
-    // &__socialbtns a{
-    //     text-decoration: none;
-    // }    
-}
-
-
-
+  }
 
 

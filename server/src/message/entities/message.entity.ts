@@ -1,5 +1,6 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm"
 
+
 @Entity()
 export class Message {
 
@@ -7,7 +8,7 @@ export class Message {
     @PrimaryGeneratedColumn({ name: 'message_id'})
     id: number
 
-    @Column({ name: 'sender_id ' , nullable: true })
+    @Column ({ name: 'sender_id ' , nullable: true })
     sender: string
 
     @Column({ name: 'receiver_id ' , nullable: true })
@@ -19,7 +20,7 @@ export class Message {
     @Column({ name: 'read' , nullable: true })
     status: string
 
-    @CreateDateColumn()
+    @CreateDateColumn ()
     createdAt: Date
 
     @UpdateDateColumn()

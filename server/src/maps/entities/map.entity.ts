@@ -1,8 +1,6 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm"
-
 @Entity()
 export class Map {
-
 
     @PrimaryGeneratedColumn({ name: 'map_id'})
     id: number
@@ -17,3 +15,5 @@ export class Map {
     updateAt: Date
 
 }
+
+
