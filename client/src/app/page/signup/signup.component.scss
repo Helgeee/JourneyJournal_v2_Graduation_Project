@@ -75,6 +75,7 @@
     font-weight: 400;
     font-size: 14px;
     color:  rgba(97, 100, 107, 1);
+    
 }
 
 
@@ -93,12 +94,19 @@
 
   color: rgba(97, 100, 107, 1);
   text-decoration: none;
+  transition: background-color 0.5s, transform 0.5s;
 }
 
-.typebtns:hover {
+.typebtns:hover{
   color: rgba(72, 39, 108, 1);
   font-weight: 800;
   border: 3px solid rgba(72, 39, 108, 1);
+  transform: scale(1.1);
+}
+
+.typebtns:hover::before {
+  opacity: 1;
+  transform: translateX(5px);
 }
 
 

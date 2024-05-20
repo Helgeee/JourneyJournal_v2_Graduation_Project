@@ -1,6 +1,6 @@
 .create-notes{
     display: block;
-    margin-top: 100px;
+    // margin-top: 100px;
     display: flex;
     align-items: center;
     
@@ -8,8 +8,11 @@
     
     justify-content: space-between;
     flex-direction: column; 
-
+    
 }
+
+
+
 
 .notes-contents{
     display: flex;
@@ -44,6 +47,13 @@
     background-color: rgb(239,239,240);
     
 
+}
+.centre{
+    position: relative; top: 50%; left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    
 }
 
 

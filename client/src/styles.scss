@@ -12,9 +12,9 @@ $textColorBlack: rgb(0, 0, 0);
 $frameСolor: rgba(175, 177, 182, 1);
 
 
-*{
-    outline: 4px solid green !important;
-}
+// *{
+//     outline: 4px solid green !important;
+// }
 
 @layer ribbon {
     // body{
@@ -25,7 +25,7 @@ $frameСolor: rgba(175, 177, 182, 1);
     // }
 }
 @layer components {
-
+        
         .button{
             border-radius: 50px;
             background: $primaryColor;
@@ -33,6 +33,7 @@ $frameСolor: rgba(175, 177, 182, 1);
             color: #ffffff;
             border:none;
             cursor: pointer;
+            transition: background-color 0.5s, transform 0.5s;
         
             &__submit {
                 width: 100%;
@@ -71,29 +72,34 @@ $frameСolor: rgba(175, 177, 182, 1);
 
             //Центровка кнопки
             margin-top: 40px;
-            position: relative; top: 50%; left: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
             
         }
-        // .typebtns{
-        //     width: 260px;
-        //     height: 40px;
-        //     margin: auto;
-        //     font-family: "Mulish", sans-serif;
-        //     border: 2px solid  rgba(175, 177, 182, 1);
-        //     border-radius: 10px;
-        //     text-decoration: none;
-        //     cursor: pointer;
-        // }
-        // .typebtns:hover{
-        //     background-color: $primaryColor;
-        // }
+        .ribbon {
+            &__buttons{
+            
+                z-index: 120;
+                grid-template-columns: 345px 345px;
+                justify-content: center;
+                grid-gap: 20px;
+                display: grid;
+                place-items: center;
+                background: none;
+            }
+            
+        }
+       
 
         .button:hover{
             background: $textColor;
+            
+            transform: scale(1.1);
         }
+        .button:hover::before {
+            opacity: 1;
+            transform: translateX(5px);
+          }
+
+
 
         .primaryColor{color: rgba(72, 39, 108, 1);}
         .indexTitleColor{color:rgba(155, 81, 224, 1);}
