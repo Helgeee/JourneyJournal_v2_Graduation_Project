@@ -5,9 +5,10 @@
 <p> На тему: <br>
  «Разработка платформы для социальной сети для коммуникации и взаимодействия пользователей»</p>
 <p>
-  <img src="Readme/C1.jpg" width="400"> 
+  <img src="Readme/image1.png" width="400"> 
   <br>
-  <img src="Readme/C2.jpg" width="250" height="300" >
+  <img src="Readme/image2.png" width="250" height="300" >
+  <br>
   <img src="Readme/C3.jpg" width="250" height="300" >
 </p>
 
@@ -65,7 +66,7 @@
 
 - Разработка базы данных СУБД PostgreSQL 
 <div>
-     <img src="Readme/image.jpg" width="400" >
+     <img src="Readme/imageBD.png" width="400" >
 </div>  
 
 - Подключение базы данных
