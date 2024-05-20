@@ -78,8 +78,11 @@
                         
                 <h1>
                     <span class="index__bigTitle textColor "> Зарегистрироваться <br> или  </span>
-                    <span class="index__bigTitle indexTitleColor "> войдите в свой аккаунт</span>
+                    <span class="index__bigTitle indexTitleColor "> войти в свой аккаунт</span>
                 </h1>
+                       
+                
+                
                         <div>
                             <label class="index__title"> Логин или Почта </label> <br>
                             <input 
@@ -91,13 +94,11 @@
                                 ( userData.controls['email'].dirty || userData.controls['email'].touched)"
                                 class="text-error">
 
-                            <div *ngIf="userData.controls['email'].hasError('required') ">Email is required</div>
-                            <div *ngIf="userData.controls['email'].hasError('email')">Please enter a valid email adress</div>
+                                <div *ngIf="userData.controls['email'].hasError('required') ">Требуется электронная почта</div>
+                                <div *ngIf="userData.controls['email'].hasError('email')">Пожалуйста, введите действительный адрес электронной почты</div>
                             </div>
 
                         </div>
-                    
-                        
 
                         <div>
                             <label class="index__title"> Пароль </label> <br>
@@ -110,17 +111,18 @@
                                 ( userData.controls['password'].dirty || userData.controls['email'].touched)"
                                 class="text-error">
 
-                                <div *ngIf="userData.controls['password'].hasError('required') ">Email is required</div>
+                                <div *ngIf="userData.controls['password'].hasError('required') ">Требуется пароль </div>
 
-                                <div *ngIf="userData.controls['password'].hasError('minLength')">Please enter a valid password (6)</div>
+                                <div *ngIf="userData.controls['password'].hasError('minLength')">Пожалуйста, введите действительный пароль (6)</div>
                             </div>
                         </div>
 
                         <button 
-                        [disabled]="!userData.valid" 
-                        id="btnNext" class=" button button__index " > Войти </button>
+                            [disabled]="!userData.valid" 
+                            id="btnNext" class=" button button__index " > Войти 
+                        </button>
                         
-                    
+                    </div>
 
-                </div>
+          
 </div>

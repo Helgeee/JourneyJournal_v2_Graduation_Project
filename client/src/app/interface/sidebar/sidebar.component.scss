@@ -67,7 +67,7 @@ li {
 .sidebar-extbtn {
   display: block;
   margin-left: 16px;
-  color: #333;
+  color: rgba(97, 100, 107, 1);
   transition: color 0.3s, transform 0.3s;
   text-decoration: none;
   font-family: "Mulish", sans-serif;
@@ -81,8 +81,11 @@ li {
   z-index: 1;
   width: 30px;
   height: 30px;
-  fill: #333;
   transition: fill 0.3s, transform 0.3s;
+}
+.sidebar-extbtn label {
+  display: block;
+  margin-top: -5px;
 }
 
 .sidebar-extbtn::before {

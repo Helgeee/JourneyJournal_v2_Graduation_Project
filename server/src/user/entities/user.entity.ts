@@ -47,4 +47,5 @@ export class User {
         onDelete: 'CASCADE' }) //Связь один ко многим
 
     collections: Collection[]
+    
 }
