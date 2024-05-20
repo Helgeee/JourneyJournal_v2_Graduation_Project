@@ -3,28 +3,29 @@
 
 <div class="create-notes">
 
- 
-  <div class="ribbon__buttons">
-    <button class=" button main " data-path="form-popup" > Создать заметку </button> 
-    <button  class=" button main " data-path="me-popup" > Моя карта </button>
-  </div>           
-  
-  
-  
-  
 
-   <div class="notes-contents">
-    <img id="note-img" class="notes-img" src="../../../assets/img/notes-stub.jpg" alt="note-img"> 
+    <div class="ribbon__buttons">
+      <button class=" button main " data-path="form-popup" > Создать заметку </button> 
+      <button  class=" button main " data-path="me-popup" > Моя карта </button>
+    </div>           
+
+    <div class="notes-contents">
+      <img id="note-img" class="notes-img" src="../../../assets/img/notes-stub.jpg" alt="note-img"> 
+        
+      <div>
+        <input id="note-title"  class="notes-title" type="text" placeholder="Введите название заметки...">
       
-    
-    <input id="note-title"  class="notes-title" type="text" placeholder="Введите название">
-    <input  id="coordinates" class="notes-coordinates" placeholder="Введите координаты" >
+        <input id="coordinates" id="numberInput" class="notes-coordinates" placeholder="Введите координаты..." pattern="\d{1,2}\*\d{1,2}\*\d{1,2}\s[NS]\s\d{1,2}\*\d{1,2}\*\d{1,2}\s[WE]">
+      </div>
+      
 
-    <textarea id="note-text" class="notes-note" type="text" placeholder="Введите текст..."></textarea>
 
-    <button  class="button main centre ">Создать заметку</button>
-  
-                   
-  
-  </div>
+      <textarea id="note-text" class="notes-text" type="text" placeholder="Введите текст..."></textarea>
+
+     <button  class="button main centre ">Создать заметку</button>
+
+                    
+
+    </div>
 </div>
+ 

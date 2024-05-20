@@ -31,7 +31,7 @@
 - SCSS
 - TypeScript
 - JavaScript
-- PostgreSQL 
+- PostgreSQL 15
 8. Используемые фреймворки:
 - Angular 17
 - Node.js 
