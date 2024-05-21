@@ -106,7 +106,7 @@
                                     class="text-error">
 
                                 <div *ngIf="userData.controls['email'].hasError('required') ">Требуется электронная почта</div>
-                                <div *ngIf="userData.controls['email'].hasError('email')">Пожалуйста,введите действительный адрес электронной почты</div>
+                                <div *ngIf="userData.controls['email'].hasError('email')">Пожалуйста введите адрес электронной почты</div>
                                 </div>
 
                             </div>
@@ -118,9 +118,13 @@
                                 required
                                 id="login" class="index__win" type="text" name="username" placeholder=" Логин">
 
-                                <div **ngIf="userData.controls['email'].invalid " class="text-error">
-                                    <div *ngIf="userData.controls['email'].hasError('required') "> Введите Логин</div>
-                                    <div *ngIf="userData.controls['email'].hasError('email')">Пожалуйста, введите Логин</div>
+                                <div *ngIf="userData.controls['username'].invalid &&
+                                    ( userData.controls['username'].dirty || userData.controls['username'].touched)"
+                                    class="text-error">
+
+                                    <div *ngIf="userData.controls['username'].hasError('required') ">Требуется Логин</div>
+
+                                    <div *ngIf="userData.controls['username'].hasError('minLength')">Пожалуйста введите  огин </div>
                                 </div>
 
                             </div>
