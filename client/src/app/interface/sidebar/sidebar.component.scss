@@ -44,6 +44,7 @@ li {
   padding: 5px;
   transition: color 0.3s, transform 0.3s;
   font-family: "Mulish", sans-serif;
+  // font-size: 18px;
   color: rgba(97, 100, 107, 1);
 }
 
@@ -116,31 +117,29 @@ li {
 
 // меню на странице входа и регистрации
 
-.indexbar{
-  // margin: 0 ;
-  // margin-top: 100px;
-  margin-left: 270px ;
-  display: flex;
-  justify-content: flex-end ;
-  flex-direction: row;
-  text-decoration: none;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+// .indexbar{
+//   // margin: 0 ;
+//   // margin-top: 100px;
+  
+//   margin-left: 270px ;
+//   display: flex;
+//   justify-content: flex-end ;
+//   flex-direction: row;
+//   text-decoration: none;
+// }
+// ul {
+//   list-style-type: none;
+//   margin: 0;
+//   padding: 0;
 
-}
-a  {
-text-decoration: none;
-padding: 15px;
-font-family: "Mulish", sans-serif;
-font-weight: 500;
-font-size: 18px;
-}
-.sidebar-element{
-  font-size: 18px;
-}
+// }
+// a  {
+// text-decoration: none;
+// padding: 15px;
+// font-family: "Mulish", sans-serif;
+// font-weight: 500;
+// font-size: 18px;
+// }
 
 
 

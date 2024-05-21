@@ -13,7 +13,7 @@ import { SignupComponent } from './page/signup/signup.component';
 
 const routes: Routes = [
   {
-    path: 'login',  
+    path: '',  
     component: loginComponent ,
   },
   {
@@ -26,7 +26,7 @@ const routes: Routes = [
     component: Header ,
   },
   {
-    path: '',
+    path: 'home',
     title: 'home',
     component: HomeComponent ,
   },

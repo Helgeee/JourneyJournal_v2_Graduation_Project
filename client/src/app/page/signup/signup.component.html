@@ -82,6 +82,18 @@
                         <span class="index__bigTitle textColor "> Зарегистрироваться <br> или  </span>
                         <span class="index__bigTitle indexTitleColor "> войти в свой аккаунт</span>
                     </h1>
+    
+
+                    <div class="indexbar">
+ 
+                        <li><button class="indexbar-element button indexbar-btn  " [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Войти </button></li>
+
+                        <li><button class="indexbar-element button indexbar-btn "[routerLink]="['signup']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"  disabled > Регистрация </button></li>
+                        
+                    </div>
+
+                    
+
                             <div>
                                 <label class="index__title"> Почта </label> <br>
                                 <input 
@@ -154,10 +166,5 @@
 
                     </div>
             
-              
-                
-                    
-                
-              
 
 </div>

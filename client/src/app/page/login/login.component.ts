@@ -8,7 +8,12 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './login.component.scss'
 })
 export class loginComponent {
+
   
+ 
+
+
+
   
   userData: FormGroup
 
@@ -32,4 +37,14 @@ export class loginComponent {
             console.log("Not valid")
         }
       }
+
+
+
+
+      
+
+      
+    
+      
+    
 }

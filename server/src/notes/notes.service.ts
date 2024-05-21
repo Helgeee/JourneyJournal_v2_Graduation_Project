@@ -19,18 +19,20 @@ export class NotesService {
 /// создание заметки 
 
   async create(createNoteDto: CreateNoteDto , id: number) { ///проверить
+
     const newNote = {
       img: createNoteDto.img,
       title: createNoteDto.title ,
       coordinate:  createNoteDto.coordinate,
       text: createNoteDto.text,
-      collection: { id: createNoteDto.collection } , 
       user: { id },
+
+      collection: { id: createNoteDto.collection } , 
     }
 
     console.log(createNoteDto)
 
-    if(!newNote) throw new BadRequestException(' Something went wrong... ')
+    if(!newNote) throw new BadRequestException(' Что-то пошло не так... ')
 
     return await this.notesRepository.save(newNote) 
 
@@ -65,7 +67,7 @@ export class NotesService {
         user: true,
       },
     })
-    if(!notes)  throw new NotFoundException('Notes N F')
+    if(!notes)  throw new NotFoundException('Что-то пошло не так...')
     return notes;
   }
 
@@ -75,7 +77,7 @@ export class NotesService {
     const notes = await this.notesRepository.findOne({
     where: { id },
   })
-  if(!notes)  throw new NotFoundException('Notes N F')
+  if(!notes)  throw new NotFoundException('Что-то пошло не так...')
 
   return await this.notesRepository.update( id , updateNoteDto ) ; 
     
@@ -90,7 +92,7 @@ export class NotesService {
         user: { id } ,
       },
   })
-      if(!notes)  throw new NotFoundException('Notes N F')
+      if(!notes)  throw new NotFoundException('Что-то пошло не так...')
 
     return await this.notesRepository.delete(id)
   }

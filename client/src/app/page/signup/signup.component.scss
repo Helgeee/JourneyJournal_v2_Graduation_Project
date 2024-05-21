@@ -9,6 +9,10 @@
     height: 100vh;
 }
 
+.textColor{
+  color: rgba(97, 100, 107, 1);
+}
+
 .index{
   &__logo{
       // background: none;       
@@ -34,7 +38,6 @@
   }
   &__bigTitle{
     font-family: "Mulish", sans-serif;
-    color: rgba(72, 39, 108, 1);
   }
   &__title {
     font-weight: 500;
@@ -109,6 +112,28 @@
   transform: translateX(5px);
 }
 
+
+
+// меню на странице входа и регистрации
+
+.indexbar{
+  margin: 0 ;
+
+  display: flex;
+ 
+  flex-direction: row;
+  text-decoration: none;
+  list-style-type: none;
+  gap: 22px;
+}
+.indexbar-element{
+  text-decoration: none;
+  font-family: "Mulish", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
 
 
 

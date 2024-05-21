@@ -20,6 +20,7 @@ export class User {
     createdAt: Date
     @UpdateDateColumn()
     updateAt: Date
+    
     //Связи
     // заметка к пользователю
     @OneToMany(() => Note, (note) => note.user ,{
