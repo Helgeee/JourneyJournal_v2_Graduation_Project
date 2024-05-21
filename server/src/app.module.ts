@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
-import { ConfigModule, ConfigService} from '@nestjs/config';
-import { TypeOrmModule, } from '@nestjs/typeorm';
+import { ConfigModule} from '@nestjs/config';
+import { TypeOrmModule, TypeOrmModuleOptions, } from '@nestjs/typeorm';
 
 
 import { UserModule } from './user/user.module';
@@ -23,6 +23,7 @@ import { SubscriptionModule } from './subscription/subscription.module';
   [
     UserModule, 
     NotesModule,
+    
     CollectionModule,
     
     AuthModule,
@@ -37,20 +38,36 @@ import { SubscriptionModule } from './subscription/subscription.module';
 
     ConfigModule.forRoot( {isGlobal: true} ),
 
+
     TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: (configService: ConfigService ) => ({
-          type: 'postgres',
-          host: configService.get('DB_HOST'),
-          port: configService.get('DB_PORT'),
-          username: configService.get('DB_USERNAME'),
-          password: configService.get('DB_PASSWORD'),
-          database: configService.get('DB_NAME'),
-          synchronize: true,
-          entities: [ __dirname + '/**/*.entity{ .js , .ts}'],
-      }),
-      inject: [ConfigService]
-    }),
+      useFactory: () => {
+          return {
+              type: 'postgres',
+              host: 'localhost',
+              port: 5432,
+              username: 'postgres',
+              password: 'root',
+              database: 'JoJo-db',
+              entities: [__dirname + '/**/*.entity{.ts,.js}'],
+              synchronize: true,
+          } as TypeOrmModuleOptions;
+      },
+  }),
+
+    // TypeOrmModule.forRootAsync({
+    //   imports: [ConfigModule],
+    //   useFactory: (configService: ConfigService ) => ({
+    //       type: 'postgres',
+    //       host: configService.get('DB_HOST'),
+    //       port: configService.get('DB_PORT'),
+    //       username: configService.get('DB_USERNAME'),
+    //       password: configService.get('DB_PASSWORD'),
+    //       database: configService.get('DB_NAME'),
+    //       synchronize: true,
+    //       entities:  [__dirname + '/../**/*.entity.{js,ts}'],
+    //   }),
+    //   inject: [ConfigService]
+    // }),
 
     
    ],

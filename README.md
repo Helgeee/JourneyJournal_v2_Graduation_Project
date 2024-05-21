@@ -9,7 +9,7 @@
   <br>
   <img src="Readme/image2.png" width="250" height="300" >
   <br>
-  <img src="Readme/C3.jpg" width="250" height="300" >
+  <!-- <img src="Readme/C3.jpg" width="250" height="300" > -->
 </p>
 
 ## Работы по проекту, которые были выполнены:
@@ -31,7 +31,7 @@
 - SCSS
 - TypeScript
 - JavaScript
-- PostgreSQL 
+- PostgreSQL 15
 8. Используемые фреймворки:
 - Angular 17
 - Node.js 

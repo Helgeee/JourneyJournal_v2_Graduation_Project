@@ -26,11 +26,11 @@ export class SignupComponent{
 
   onSubmit(){
    
-    if(this.userData.valid){
-      this.authService.signUp(this.userData.value) // 
-    }else {
-      console.log("Not valid")
+  //   if(this.userData.valid){
+  //     this.authService.signUp(this.userData.value) // 
+  //   }else {
+  //     console.log("Not valid")
       
-  }
+  // }
 }
 }
