@@ -107,6 +107,49 @@ $frameСolor: rgba(175, 177, 182, 1);
           }
 
 
+          .typebtns {
+            width: 260px;
+            height: 40px;
+            margin: auto;
+            font-family: "Mulish", sans-serif;
+            border: 2px solid rgba(97, 100, 107, 1);
+            border-radius: 10px;
+            background-color: transparent;
+          
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+          
+            color: rgba(97, 100, 107, 1);
+            text-decoration: none;
+            transition: background-color 0.5s, transform 0.5s;
+          }
+          
+          .typebtns:hover{
+            color: rgba(72, 39, 108, 1);
+            border: 3px solid rgba(72, 39, 108, 1);
+            transform: scale(1.1);
+          }
+          
+          .typebtns:hover::before {
+            opacity: 1;
+            transform: translateX(5px);
+          }
+
+
+          .yandex-btn{
+            display: flex;
+            flex-direction: row;
+            gap: 22px;
+          }
+          .yandex-label{
+            margin-top: 8px;
+          }
+          .yandex-btn svg{
+            padding: 3px;
+          }
+
+
 
         .primaryColor{color: rgba(72, 39, 108, 1);}
         .indexTitleColor{color:rgba(155, 81, 224, 1);}

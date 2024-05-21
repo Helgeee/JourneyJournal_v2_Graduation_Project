@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
 export class Header implements OnInit {
 
     
-    isAuth = false   //отображение на странице
+    isAuth = true   //отображение на странице
     
 
 
