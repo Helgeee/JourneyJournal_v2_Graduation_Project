@@ -15,9 +15,6 @@ export class loginComponent {
     constructor(private readonly authService: AuthService){ 
       this.userData = new FormGroup({
         email: new FormControl('', [Validators.required, Validators.email]),
-
-        username:  new FormControl('', [Validators.required , Validators.minLength(1)] ),
-
         password:  new FormControl('', [Validators. required , Validators.minLength(4)] ),
       })
     }
@@ -26,7 +23,8 @@ export class loginComponent {
     onSubmit(){
     
       if(this.userData.valid){
-        this.authService.signUp(this.userData.value) 
+        this.authService.login(this.userData.value) 
+        console.log(this.userData.value)
       }else {
         console.log("Not valid") 
     }

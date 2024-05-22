@@ -1,11 +1,9 @@
 <!-- 
-*ngIf="isAuth; 
+*ngIf="isAuth;  else isNotAuth 
 *ngIf="this.authService.isAuthSig(); 
 -->
 
-
-
-    <nav *ngIf="isAuth;  else isNotAuth "
+    <nav *ngIf="this.authService.isAuthSig();   "
     class="sidebar-menu">
         <ul>
             <li>
@@ -110,7 +108,7 @@
 
             <li>
                 
-                <button class="sidebar-extbtn"   [routerLink]="['MyEmptyPage']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  >
+                <button class="sidebar-extbtn"  (click)="logoutHandler()"   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  >
                       <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7388 15.9375H4.6875C4.17 15.9375 3.75 15.5175 3.75 15C3.75 14.4825 4.17 14.0625 4.6875 14.0625H19.7388C20.2563 14.0625 20.6763 14.4825 20.6763 15C20.6763 15.5175 20.2563 15.9375 19.7388 15.9375Z" fill="#61646B"/>
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M16.0793 19.5813C15.8393 19.5813 15.598 19.49 15.4155 19.305C15.0493 18.9375 15.0518 18.345 15.418 17.98L18.4105 15L15.418 12.0188C15.0518 11.6538 15.0493 11.0613 15.4155 10.6938C15.7818 10.3263 16.3743 10.3263 16.7405 10.6913L20.4018 14.3363C20.5793 14.5113 20.678 14.7513 20.678 15C20.678 15.2488 20.5793 15.4888 20.4018 15.6638L16.7405 19.3075C16.558 19.49 16.318 19.5813 16.0793 19.5813Z" fill="#61646B"/>
@@ -125,15 +123,15 @@
         </ul>
     </nav>
         
-          <ng-template #isNotAuth>
-              <!-- <ul class="indexbar">
+          <!-- <ng-template #isNotAuth>
+              <ul class="indexbar">
                 
                 <li><button class="indexbar-element button indexbar-btn  " [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Войти </button></li>
 
                 <li><button class="indexbar-element button indexbar-btn "[routerLink]="['signup']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Регистрация </button></li>
                 
-              </ul> -->
-          </ng-template>
+              </ul>
+          </ng-template> -->
 
 
 

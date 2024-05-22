@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import {  BrowserAnimationsModule  }  from '@angular/platform-browser/animations';
+import {  ToastrModule  }  from  'ngx-toastr' ;
+
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -14,7 +17,6 @@ import { CreateNotesComponent } from './page/createNotes/create-notes.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './page/signup/signup.component';
 import { loginComponent } from './page/login/login.component';
-import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { NotesFormComponent } from './component/notes-form/notes-form.component';
 
@@ -25,11 +27,15 @@ import { NotesFormComponent } from './component/notes-form/notes-form.component'
     AppRoutingModule,
     FormsModule,
     
-    ToastrModule.forRoot(),
     CommonModule,
     
     ReactiveFormsModule,
     HttpClientModule,
+
+    BrowserAnimationsModule,
+    ToastrModule.forRoot ( ) , 
+
+
   ],
   declarations: [
     AppComponent,

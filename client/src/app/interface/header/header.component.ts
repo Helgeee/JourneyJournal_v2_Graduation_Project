@@ -10,13 +10,12 @@ import { AuthService } from '../../services/auth.service';
 export class Header implements OnInit {
 
     
-    isAuth = true   //отображение на странице
+    // isAuth = true   //отображение на странице
     
 
 
     //Необходимо настроить отображение Header и sidebar при логине и выходу
-    constructor(public AuthService: AuthService){}
-
+    constructor(public authService: AuthService){}
     
     // свойство для отображения
     ngOnInit(): void {
