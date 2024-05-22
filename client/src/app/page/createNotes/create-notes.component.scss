@@ -55,7 +55,17 @@
     width: 240px;
     height: 20px;
     outline: none;
+   
+  
 }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
 .notes-text{
     margin: 10px 0px   10px 0px;
     max-height: 180px; 

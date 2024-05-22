@@ -12,25 +12,24 @@ export class SignupComponent{
 
   userData: FormGroup
 
-   //Исправить отображение страницы
-
-  constructor(private readonly authService: AuthService){
+  // обработка userData
+  constructor(private readonly authService: AuthService){ 
     this.userData = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
 
-      username:  new FormControl('', [Validators.required , Validators.minLength(3)] ),
+      username:  new FormControl('', [Validators.required , Validators.minLength(1)] ),
 
       password:  new FormControl('', [Validators. required , Validators.minLength(6)] ),
     })
   }
 
+  //проверка на валидность данных формы
   onSubmit(){
    
-  //   if(this.userData.valid){
-  //     this.authService.signUp(this.userData.value) // 
-  //   }else {
-  //     console.log("Not valid")
-      
-  // }
+    if(this.userData.valid){
+      this.authService.signUp(this.userData.value) 
+    }else {
+      console.log("Not valid") 
+  }
 }
 }

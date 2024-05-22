@@ -11,7 +11,7 @@ import { catchError, tap } from "rxjs";
 })
 
 export class AuthService{
-     isAuthSig = signal<boolean>(false) // отображение в системе или нет
+    isAuthSig = signal<boolean>(false) // отображение в системе или нет
     constructor(
         private readonly http: HttpClient,
         private readonly router: Router,
@@ -47,14 +47,14 @@ export class AuthService{
         )
         .subscribe(() => {
             this.toastr.success('logged in')
-            this.router.navigate(['/home']) ///при логине переход на home
+            this.router.navigate(['/home']) ///при выполнении входа переход на /home
         })
     }
     ///Выход из системы
         logout() {
             localStorage.removeItem('token')
             this.isAuthSig.set(false)
-            this.router.navigate(['/login'])
+            this.router.navigate([''])
             this.toastr.success('logged out')
         }
     private handeError(err: HttpErrorResponse): void {

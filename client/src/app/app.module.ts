@@ -23,12 +23,13 @@ import { NotesFormComponent } from './component/notes-form/notes-form.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     FormsModule,
+    
+    ToastrModule.forRoot(),
+    CommonModule,
+    
     ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule.forRoot(),
-    CommonModule
   ],
   declarations: [
     AppComponent,

@@ -1,7 +1,7 @@
  
  
  
- <form [formGroup] ="userData" 
+<form [formGroup] ="userData" 
             (ngSubmit)="onSubmit()">
                  
         <div class="index__login">
@@ -95,7 +95,7 @@
                 
                 
                         <div>
-                            <label class="index__title"> Логин или Почта </label> <br>
+                            <label class="index__title">  Почта </label> <br>
                             <input 
                             formControlName="email"
                             required
@@ -116,7 +116,7 @@
                             <label class="index__title"> Пароль </label> <br>
                             <input formControlName="password"
                             required
-                            id="password"  class="index__win" type="password" name="password" placeholder=" Пароль">
+                            id="password"  class="index__win" type="password" name="password" placeholder="Password">
 
                             
                             <div *ngIf="userData.controls['password'].invalid &&
@@ -134,6 +134,9 @@
                             id="btnNext" class=" button button__index " > Войти 
                         </button>
 
+
+
+                        
                         <button  class="typebtns yandex-btn " > 
                             <svg width="28" height="28" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_97_1861)">
@@ -148,4 +151,5 @@
                     </div>
 
           
-</div>
+        </div>
+</form>
