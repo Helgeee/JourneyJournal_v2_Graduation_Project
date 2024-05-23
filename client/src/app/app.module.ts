@@ -19,6 +19,8 @@ import { SignupComponent } from './page/signup/signup.component';
 import { loginComponent } from './page/login/login.component';
 import { CommonModule } from '@angular/common';
 import { NotesFormComponent } from './component/notes-form/notes-form.component';
+import { TripsComponent } from './page/trips/trips.component';
+import { TripsFormComponent } from './component/trips-form/trips-form.component';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { NotesFormComponent } from './component/notes-form/notes-form.component'
     Header,
     SettingsComponent,
     CreateNotesComponent,
-    NotesFormComponent
+    NotesFormComponent,
+    TripsComponent,
+    TripsFormComponent,
 
   ],
   

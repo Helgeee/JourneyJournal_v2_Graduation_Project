@@ -2,9 +2,7 @@ import { HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http"
 import { API_URL } from "../constant/constants";
 
 export class authinterceptor implements HttpInterceptor{
-    constructor(){
-
-    }
+    constructor(){}
 
     intercept(
         req: HttpRequest<any>,

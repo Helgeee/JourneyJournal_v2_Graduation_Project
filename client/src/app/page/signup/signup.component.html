@@ -163,23 +163,28 @@
                             
 
                             <div class="agreePolicy ">
-                                <input class="  signup-checkbox " type="checkbox"> 
-                                <div > Согласен(а) с Политикой в отношении <br> обработки персональных данных</div> 
+                                <input (change)="updateCheckbox($event)" type="checkbox" name="checkbox"> 
+                                <a class="agreePolicy"  href=""> Согласен(а) с Политикой в отношении <br> обработки персональных данных</a> 
                             </div>
 
                             <div class="index__minititle " >
                                 Выберите тип профиля, <br> который вы хотели бы cоздать
                             </div>
                         
-                            <button id="extrovert" class="typebtns " > Экстраверт </button>
-                            <button id="Ambiveter" class="typebtns " > Амбиверт </button>
-                            <button id="Интроверт" class="typebtns" > Интроверт </button>
+                            <button  id="extrovert" class="typebtns " > Экстраверт </button>
+                            <button  id="Ambiveter" class="typebtns " > Амбиверт </button>
+                            <button  id="Интроверт" class="typebtns" > Интроверт </button>
                             
                             <button 
-                            [disabled]="!userData.valid" 
+                           
+                            [disabled]="!userData.valid || !checkboxChecked" (click)="onSubmit()"
                             id="btnNext" class=" button button__index " > Cоздать аккаунт </button>
                             
                         
+
+            
+                           
+
 
                     </div>
             

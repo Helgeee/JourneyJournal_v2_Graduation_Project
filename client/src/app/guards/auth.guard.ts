@@ -1,19 +1,21 @@
-// import { CanActivateFn, Router } from "@angular/router";
-// import { AuthServise } from "../auth/services/auth.servise";
-// import { inject } from "@angular/core";
+import { CanActivateFn, Router } from "@angular/router";
+import { AuthService} from "../services/auth.service";
+import { inject } from "@angular/core";
 
 
-//гуард для защиты от перехода на разные страницы без логина
+// гуард для защиты роутов (перехода на разные страницы без аунтификации)
 
-// export function authGuard(): CanActivateFn{
-//     return () => {
-//         const authService: AuthServise = inject(AuthServise)
-//         const router: Router = inject(Router)
+export function authGuard(): CanActivateFn{
+    return () => {
+        const authService: AuthService = inject(AuthService)
+        const router: Router = inject(Router)
 
-//         if(AuthServise.isAuthSig()){
-//             return true
-//         }
-//         router.navigate('[/login]')
-//         return false
-//     }
-// }
+        
+        if (authService.isAuthSig()){
+
+            return true; 
+        }
+        router.navigate([''])
+        return false
+    }
+}

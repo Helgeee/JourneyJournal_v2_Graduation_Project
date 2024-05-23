@@ -25,5 +25,40 @@
     margin-right: auto;
     
   }
+  &-form-starbtn {
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent;
+    margin-left: 16px;
+    transition: color 0.3s, transform 0.3s;
+    text-decoration: none;
+    border: none;
+    
+  }
+  &-form-starbtn svg{
+    fill: rgba(73, 40, 109, 1); 
+  }
+    &-tripsbtn:before {
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  &-form-starbtn:hover {
+    color:rgba(73, 40, 109, 1);
+    transform: scale(1.1);
+    
+  }
+  
+  &-form-starbtn svg:hover *  {
+    fill: #ec00b9; /* Желаемый цвет */
+  }
+  &-form-starbtn:hover::before {
+    opacity: 1;
+    transform: translateX(5px);  
+  }
+  &-form-starbtn:active svg {
+    fill:rgba(155, 81, 224, 1);  /* Цвет  если нужно изменить */
+  }
   
 }
