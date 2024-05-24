@@ -19,11 +19,15 @@
 
 .ribbon-wrapper{
     display: grid;
-    margin: 0 auto;
+    
 
     grid-gap: 30px 17px;
     margin-top: 56px;
     grid-template-columns: 355px 355px;
     grid-auto-rows: minmax(217 , 294);
     justify-content: center;
+
+    
+   
+    
 }

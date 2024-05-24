@@ -47,14 +47,14 @@ export class SignupComponent{
     }
   
 
-  // проверка на валидность данных формы
-//   onSubmit(){
-//     if(this.userData.valid ){
-//       this.authService.signUp(this.userData.value) 
-//     }else {
-//       console.log("Not valid") 
-//   }
-// }
+      // проверка на валидность данных формы
+      //   onSubmit(){
+      //     if(this.userData.valid ){
+      //       this.authService.signUp(this.userData.value) 
+      //     }else {
+      //       console.log("Not valid") 
+      //   }
+      // }
 
 
 

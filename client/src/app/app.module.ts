@@ -5,7 +5,7 @@ import {  BrowserAnimationsModule  }  from '@angular/platform-browser/animations
 import {  ToastrModule  }  from  'ngx-toastr' ;
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -19,8 +19,10 @@ import { SignupComponent } from './page/signup/signup.component';
 import { loginComponent } from './page/login/login.component';
 import { CommonModule } from '@angular/common';
 import { NotesFormComponent } from './component/notes-form/notes-form.component';
-import { TripsComponent } from './page/trips/trips.component';
-import { TripsFormComponent } from './component/trips-form/trips-form.component';
+import { CollectionComponent } from './page/collection-Trips/collection.component';
+import { authinterceptor } from './interceptors/auth.interceptor';
+import { MiniNotesFormComponent } from './component/mini-notes-form/mini-notes-form.component';
+import { ProfileComponent } from './page/profile/profile.component';
 
 
 @NgModule({
@@ -49,12 +51,20 @@ import { TripsFormComponent } from './component/trips-form/trips-form.component'
     SettingsComponent,
     CreateNotesComponent,
     NotesFormComponent,
-    TripsComponent,
-    TripsFormComponent,
-
+    CollectionComponent,
+    MiniNotesFormComponent,
+    ProfileComponent
+    
+    
   ],
   
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS ,
+      useClass: authinterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

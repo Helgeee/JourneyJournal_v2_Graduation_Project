@@ -1,20 +1,50 @@
 
-.trips{
-    
-
-  
+.trips{ 
     &-container{
-        max-width: 650px;
-        height: 200px;
-        
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        
-        flex-direction: row;
-        
-        
-        justify-content: space-between;
+      margin-top: 70px;
+      display: grid;
+      
+     
+    }
+    &-created{
+
+      grid-column: a;
+
+
+      display: flex;
+      max-width: 650px;
+      height: 40px;
+      align-items: center;
+      flex-direction: row;
+      gap: 20px;
+
+    }&-ribbon{
+
+      margin-top: 60px;
+      display: grid;
+      grid-column: b ;
+       
+
+    }&-forms{
+      display: flex;
+      max-width: 650px;
+      height: 40px;
+      justify-content: start;
+
+      align-items: center;
+      flex-direction: row;
+      gap: 30px;
+    }
+    &-title{
+      display: block;
+      height: 30px;
+      width: 100px;
+      color: rgba(97, 100, 107, 1);
+      text-decoration: none;
+      font-family: "Mulish", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+
     }
     &-input{
         width: 400px;

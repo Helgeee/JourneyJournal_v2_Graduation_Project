@@ -7,10 +7,49 @@
     justify-content: center;
     
     padding: 20px;
-    border: 1px solid #000000;
-   
+       
   &-contents {
     text-align: center;
+  }
+  &-form{
+    border: 2px solid #efeff0;
+    border-radius: 12px;
+    padding: 8px 8px 12px 8px;
+    width: 364px;
+    height: 270px;
+  }
+  &-form-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+
+  }
+  &-form-coordinates{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 133%;
+    letter-spacing: 0.02em;
+    color: #61646b;
+  }
+  
+  &-form-title{
+    font-weight: 500;
+    color: rgba(73, 40, 109, 1);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0.01em;
+  }
+  &-form-text{
+    font-weight: 500;
+    color: rgba(73, 40, 109, 1);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0.01em;
   }
   &-img{
     padding: 5px;
@@ -18,7 +57,6 @@
     max-width: 450px;
     height: 180px;
     border-radius: 10px;
-    border: 2px solid #000000;
     padding: 5px;
     margin: 10px;
     margin-left: auto;
@@ -26,6 +64,8 @@
     
   }
   &-form-starbtn {
+    display: block;
+
     margin: 0px;
     padding: 0px;
     background-color: transparent;
@@ -33,6 +73,7 @@
     transition: color 0.3s, transform 0.3s;
     text-decoration: none;
     border: none;
+    cursor: pointer;
     
   }
   &-form-starbtn svg{
@@ -61,4 +102,5 @@
     fill:rgba(155, 81, 224, 1);  /* Цвет  если нужно изменить */
   }
   
+
 }
