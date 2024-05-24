@@ -38,11 +38,15 @@
       
       <div>
         <input id="note-title"  class="notes-title" type="text" placeholder="Введите название заметки...">
-        
-
-      
-       
+               
         <input id="coordinates" type="number" class="notes-coordinates" placeholder="Введите координаты..." >
+
+        <select required class="notes-select" formControlName="collection" placeholder="Введите координаты...">
+          <!-- <option *ngFor="let collection of this.collectionService.collectionsSig()"
+          value="{{collection.id}}"> {{collection.title}}</option> -->
+
+        </select>
+      
       </div>
       
 
