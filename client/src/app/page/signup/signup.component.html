@@ -1,11 +1,10 @@
-<form [formGroup] ="userData" 
-              (ngSubmit)="onSubmit()">
+<form 
+    [formGroup] ="userData" 
+    (ngSubmit)="onSubmit()">
 
-
-                    
         <div class="index__signup">
                         
-                    <div class="index__logo">
+                <div class="index__logo">
                             <svg version="1.1" id="1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 1303.5 943.5" style="enable-background:new 0 0 1303.5 943.5;" xml:space="preserve">
                                 <style type="text/css">
@@ -72,7 +71,7 @@
                                     </g>
                                 </g>
                             </svg>
-                   </div>
+                </div>
                 
                 
 
@@ -82,19 +81,35 @@
                         <span class="index__bigTitle textColor "> Зарегистрироваться <br> или  </span>
                         <span class="index__bigTitle indexTitleColor "> войти в свой аккаунт</span>
                     </h1>
+    
+
+                    <div class="indexbar">
+ 
+                        <li><button class="indexbar-element button indexbar-btn  " [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Войти </button></li>
+
+                        <li><button class="indexbar-element button indexbar-btn "[routerLink]="['signup']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"  disabled > Регистрация </button></li>
+                        
+                    </div>
+
+                    
+
                             <div>
                                 <label class="index__title"> Почта </label> <br>
                                 <input 
                                 formControlName="email"
                                 required
-                                id="email" class="index__win " type="text" name="email" placeholder=" Email ">
+                                id="email" 
+                                class="index__win" 
+                                type="text" 
+                                name="email" 
+                                placeholder=" Email ">
 
                                 <div *ngIf="userData.controls['email'].invalid &&
                                     ( userData.controls['email'].dirty || userData.controls['email'].touched)"
                                     class="text-error">
 
-                                <div *ngIf="userData.controls['email'].hasError('required') ">Требуется электронная почта</div>
-                                <div *ngIf="userData.controls['email'].hasError('email')">Пожалуйста,введите действительный адрес электронной почты</div>
+                                    <div *ngIf="userData.controls['email'].hasError('required') ">Требуется электронная почта</div>
+                                    <div *ngIf="userData.controls['email'].hasError('email')">Пожалуйста введите адрес электронной почты</div>
                                 </div>
 
                             </div>
@@ -102,14 +117,23 @@
 
                             <div>
                                 <label class="index__title"> Логин </label> <br>
-                                <input formControlName="username"
-                                required
-                                id="login" class="index__win" type="text" name="username" placeholder=" Логин">
+                                    <input 
+                                    formControlName="username"
+                                    required
+                                    id="login" 
+                                    class="index__win" 
+                                    type="text" 
+                                    name="username" 
+                                    placeholder=" Login ">
 
-                                <div **ngIf="userData.controls['email'].invalid " class="text-error">
-                                    <div *ngIf="userData.controls['email'].hasError('required') "> Введите Логин</div>
-                                    <div *ngIf="userData.controls['email'].hasError('email')">Пожалуйста, введите Логин</div>
-                                </div>
+                                    <div *ngIf="userData.controls['username'].invalid &&
+                                        ( userData.controls['username'].dirty || userData.controls['username'].touched)"
+                                        class="text-error">
+
+                                        <div *ngIf="userData.controls['username'].hasError('required') ">Требуется Логин.</div>
+
+                                        <div *ngIf="userData.controls['username'].hasError('minLength')">Пожалуйста введите Логин. </div>
+                                    </div>
 
                             </div>
                             
@@ -117,47 +141,53 @@
                             <div>
                                 <label class="index__title"> Пароль </label> <br>
                                 <input formControlName="password"
-                                required
-                                id="password"  class="index__win" type="password" name="password" placeholder=" Пароль">
+                                    required
+                                    id="password"  
+                                    class="index__win" 
+                                    type="password" 
+                                    name="password"
+                                    placeholder=" Password ">
 
                                 
                                 <div *ngIf="userData.controls['password'].invalid &&
-                                    ( userData.controls['password'].dirty || userData.controls['email'].touched)"
+                                    ( userData.controls['password'].dirty || userData.controls['password'].touched)"
                                     class="text-error">
 
-                                    <div *ngIf="userData.controls['password'].hasError('required') ">Требуется пароль</div>
+                                <div *ngIf="userData.controls['password'].hasError('required') ">Требуется пароль.</div>
 
-                                    <div *ngIf="userData.controls['password'].hasError('minLength')">Пожалуйста,введите  пароль больше 6 символов</div>
+                                <div *ngIf="userData.controls['password'].hasError('minLength')">Пароль должен быть больше 6 символов.</div>
+
                                 </div>
                             </div>
 
                             
 
-                            <div>
-                                <input class=" imput signup__checkbox " type="checkbox"> 
-                                <label class="agreePolicy ">Согласен(а) с политикой</label> 
+                            <div class="agreePolicy ">
+                                <input (change)="updateCheckbox($event)" type="checkbox" name="checkbox"> 
+                                <a class="agreePolicy"  href=""> Согласен(а) с Политикой в отношении <br> обработки персональных данных</a> 
                             </div>
 
                             <div class="index__minititle " >
                                 Выберите тип профиля, <br> который вы хотели бы cоздать
                             </div>
                         
-                            <button id="extrovert" class="typebtns " > Экстраверт </button>
-                            <button id="Ambiveter" class="typebtns " > Амбиверт </button>
-                            <button id="Интроверт" class="typebtns" > Интроверт </button>
+                            <button  id="extrovert" class="typebtns " > Экстраверт </button>
+                            <button  id="Ambiveter" class="typebtns " > Амбиверт </button>
+                            <button  id="Интроверт" class="typebtns" > Интроверт </button>
                             
                             <button 
-                            [disabled]="!userData.valid" 
+                           
+                            [disabled]="!userData.valid || !checkboxChecked" (click)="onSubmit()"
                             id="btnNext" class=" button button__index " > Cоздать аккаунт </button>
                             
                         
 
+            
+                           
+
+
                     </div>
             
-              
-                
-                    
-                
-              
 
-</div>
+        </div>
+</form>

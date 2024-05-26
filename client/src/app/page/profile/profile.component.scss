@@ -7,12 +7,12 @@
         display: flex;
         align-items: center;
         
-        flex-direction: row;
+        
         
         justify-content: space-between;
         flex-direction: column; 
     }
-    &__avatar{
+    &-avatar{
         display: block;
         margin-top: 60px;
         height: 56px;
@@ -20,7 +20,7 @@
         
         border-radius: 50px;
     }
-    &__statistVisit{
+    &-statistVisit{
         max-width: 300px;
         grid-template-columns: 110px 110px;
         flex-direction: row;
@@ -58,18 +58,12 @@
 }
 
 
-.postAccount{
-    
-    &__container{
-        margin-top: 56px;
-        grid-template-columns: 256px 256px;
-        grid-gap: 30px 17px;
-        display: grid;
-        grid-auto-rows: minmax(217 , 294);
-        justify-content: center;
-    }
+.profile-ribbon-wrapper{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Два столбца одинаковой ширины */
+    grid-gap: 40px; /* Расстояние между постами */
 
-    
 }
 
 .line{

@@ -1,15 +1,13 @@
-import { IsNotEmpty,  IsOptional, IsString } from "class-validator"
+import { IsNotEmpty,  IsOptional} from "class-validator"
 import { User } from "src/user/entities/user.entity"
 
 
 export class CreateCollectionDto {
 
     @IsNotEmpty()
-    @IsString()
     title: string
 
     @IsOptional()
-    @IsString()
     img?: string
 
     @IsOptional()

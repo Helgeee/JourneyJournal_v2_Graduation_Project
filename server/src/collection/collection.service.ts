@@ -13,11 +13,11 @@ export class CollectionService {
 
   constructor(
     @InjectRepository(Collection)
-    private readonly collectionRepository: Repository<Collection> ) {}
+    private readonly collectionRepository: Repository<Collection>, ) {}
 
   //Создаёт Новую коллекцию
 
-  async create(createCollectionDto: CreateCollectionDto, id:number) {
+  async create(createCollectionDto: CreateCollectionDto, id: number) {
 
     const isExist = await this.collectionRepository.findBy({
       user: { id },
@@ -25,13 +25,15 @@ export class CollectionService {
     })
 
     if(isExist.length) 
-      throw new BadRequestException('This collection already exist!') ///Проверка на существует ли такая уже Коллекция
+      throw new BadRequestException('Такая коллекция уже существует!') ///Проверка на существует ли такая уже Коллекция
 
     const newCollection = {
         
         title: createCollectionDto.title,
         img: createCollectionDto.img,
-        user: { id } ,
+        user: { 
+         id: id , 
+        }, //присваивание id пользователя к коллекции (не работает)
       }
       console.log(newCollection)
 
@@ -43,26 +45,28 @@ export class CollectionService {
   async findAll(id: number) {
     return await this.collectionRepository.find({
       where:{
-        user: {id},
+        user: { id },
       },
       relations: { 
         notes: true,
       },
     })
+    
   }
 
    // поиск коллекций пользователя
 
   async findOne(id: number) {
-    const collection = await this.collectionRepository.findOne({
+    const isExist = await this.collectionRepository.findOne({
       where: { id },
       relations: {
         user: true,
         notes: true,
       },
     })
-    if(!collection)  throw new  NotFoundException('Collections not found')
-    return collection ;
+    console.log(isExist)
+    if(!isExist)  throw new  NotFoundException('Коллекции не найдены')
+    return isExist 
   }
 
   // обновление коллекций
@@ -72,7 +76,8 @@ export class CollectionService {
       where: { id } ,
       
     })
-    if(!collection)  throw new  NotFoundException('Collections not found')
+    console.log( id , updateCollectionDto)
+    if(!collection)  throw new  NotFoundException('Коллекция не найдена')
     return await this.collectionRepository.update( id , updateCollectionDto) ;
   }
 
@@ -83,7 +88,7 @@ export class CollectionService {
     const collection = await this.collectionRepository.findOne({
       where: { id },
   })
-      if(!collection)  throw new NotFoundException('Notes N F')
+      if(!collection)  throw new NotFoundException('Коллекция не найдена')
 
     return await this.collectionRepository.delete(id)
   }

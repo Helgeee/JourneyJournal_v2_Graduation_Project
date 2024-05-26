@@ -1,15 +1,13 @@
 <!-- 
-*ngIf="isAuth; 
+*ngIf="isAuth;  else isNotAuth 
 *ngIf="this.authService.isAuthSig(); 
 -->
 
-
-
-    <nav *ngIf="isAuth;  else isNotAuth "
+    <nav *ngIf="this.authService.isAuthSig();   "
     class="sidebar-menu">
         <ul>
             <li>
-              <a class="sidebar-element"   [routerLink]="['']" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}">
+              <a class="sidebar-element"   [routerLink]="['home']" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}">
                 
                 <svg #icon class="icon" width="28" height="28" viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd"  d="M13.717 15.2913C14.921 15.2913 15.901 16.2643 15.901 17.4603V20.5363C15.901 20.7933 16.107 20.9993 16.371 21.0053H18.277C19.779 21.0053 21 19.7993 21 18.3173V9.59331C20.993 9.08331 20.75 8.60331 20.333 8.28431L13.74 3.02631C12.855 2.32531 11.617 2.32531 10.729 3.02831L4.181 8.28231C3.748 8.61131 3.505 9.09131 3.5 9.61031V18.3173C3.5 19.7993 4.721 21.0053 6.223 21.0053H8.147C8.418 21.0053 8.638 20.7903 8.638 20.5263C8.638 20.4683 8.645 20.4103 8.657 20.3553V17.4603C8.657 16.2713 9.631 15.2993 10.826 15.2913H13.717ZM18.277 22.5053H16.353C15.251 22.4793 14.401 21.6143 14.401 20.5363V17.4603C14.401 17.0913 14.094 16.7913 13.717 16.7913H10.831C10.462 16.7933 10.157 17.0943 10.157 17.4603V20.5263C10.157 20.6013 10.147 20.6733 10.126 20.7413C10.018 21.7313 9.172 22.5053 8.147 22.5053H6.223C3.894 22.5053 2 20.6263 2 18.3173V9.60331C2.01 8.60931 2.468 7.69931 3.259 7.10031L9.794 1.85531C11.233 0.715311 13.238 0.715311 14.674 1.85331L21.256 7.10331C22.029 7.69231 22.487 8.60031 22.5 9.58231V18.3173C22.5 20.6263 20.606 22.5053 18.277 22.5053V22.5053Z" fill="#61646B"/>
@@ -55,7 +53,7 @@
 
             <!-- переход на страницу создания поездок(Подборок) из заметок  -->
             <li>
-              <a class="sidebar-element"  [routerLink]="['empty-route']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
+              <a class="sidebar-element"  [routerLink]="['trips']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" >
                 <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6484 10.4623C16.1654 10.4623 15.7734 10.0703 15.7734 9.58732V6.76282C15.7734 6.27982 16.1654 5.88782 16.6484 5.88782C17.1314 5.88782 17.5234 6.27982 17.5234 6.76282V9.58732C17.5234 10.0703 17.1314 10.4623 16.6484 10.4623Z" fill="#61646B"/>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6484 25.7612C16.1654 25.7612 15.7734 25.3692 15.7734 24.8862V22.526C15.7734 22.0418 16.1654 21.651 16.6484 21.651C17.1314 21.651 17.5234 22.0418 17.5234 22.526V24.8862C17.5234 25.3692 17.1314 25.7612 16.6484 25.7612Z" fill="#61646B"/>
@@ -110,7 +108,7 @@
 
             <li>
                 
-                <button class="sidebar-extbtn"   [routerLink]="['MyEmptyPage']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  >
+                <button class="sidebar-extbtn"  (click)="logoutHandler()"   routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"  >
                       <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7388 15.9375H4.6875C4.17 15.9375 3.75 15.5175 3.75 15C3.75 14.4825 4.17 14.0625 4.6875 14.0625H19.7388C20.2563 14.0625 20.6763 14.4825 20.6763 15C20.6763 15.5175 20.2563 15.9375 19.7388 15.9375Z" fill="#61646B"/>
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M16.0793 19.5813C15.8393 19.5813 15.598 19.49 15.4155 19.305C15.0493 18.9375 15.0518 18.345 15.418 17.98L18.4105 15L15.418 12.0188C15.0518 11.6538 15.0493 11.0613 15.4155 10.6938C15.7818 10.3263 16.3743 10.3263 16.7405 10.6913L20.4018 14.3363C20.5793 14.5113 20.678 14.7513 20.678 15C20.678 15.2488 20.5793 15.4888 20.4018 15.6638L16.7405 19.3075C16.558 19.49 16.318 19.5813 16.0793 19.5813Z" fill="#61646B"/>
@@ -123,21 +121,17 @@
             </li>
 
         </ul>
-
-
-  
-
     </nav>
+        
+          <!-- <ng-template #isNotAuth>
+              <ul class="indexbar">
+                
+                <li><button class="indexbar-element button indexbar-btn  " [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Войти </button></li>
 
-    <ng-template #isNotAuth>
-        <ul class="indexbar">
-          
-          <li><button class="indexbar-element button indexbar-btn  " [routerLink]="['login']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Войти </button></li>
-
-          <li><button class="indexbar-element button indexbar-btn "[routerLink]="['signup']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Регистрация </button></li>
-          
-        </ul>
-    </ng-template>
+                <li><button class="indexbar-element button indexbar-btn "[routerLink]="['signup']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Регистрация </button></li>
+                
+              </ul>
+          </ng-template> -->
 
 
 

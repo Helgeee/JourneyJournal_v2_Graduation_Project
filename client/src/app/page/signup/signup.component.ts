@@ -11,26 +11,51 @@ import { AuthService } from '../../services/auth.service';
 export class SignupComponent{
 
   userData: FormGroup
+  
 
-   //Исправить отображение страницы
+  // обработка userData
+  constructor(private readonly authService: AuthService){ 
 
-  constructor(private readonly authService: AuthService){
+
     this.userData = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
 
-      username:  new FormControl('', [Validators.required , Validators.minLength(3)] ),
+      username:  new FormControl('', [Validators.required ]),
 
-      password:  new FormControl('', [Validators. required , Validators.minLength(6)] ),
+      password:  new FormControl('', [Validators.required , Validators.minLength(6)] ),
+
+      type: new FormControl('' , []),
+
+      checkbox: new FormControl( [false, Validators.requiredTrue])
     })
   }
 
-  onSubmit(){
-   
-  //   if(this.userData.valid){
-  //     this.authService.signUp(this.userData.value) // 
-  //   }else {
-  //     console.log("Not valid")
-      
-  // }
-}
+
+  // проверка на валидность данных формы
+  checkboxChecked: boolean = false; // переменная для хранения состояния checkbox
+
+    onSubmit(){
+        if(this.userData.valid && this.checkboxChecked){
+          this.authService.signUp(this.userData.value) 
+        } else {
+          console.log("Form data is not valid or checkbox is not checked") 
+        }
+    }
+    // Функция для обновления состояния checkbox
+    updateCheckbox(event: any){
+        this.checkboxChecked = event.target.checked;
+    }
+  
+
+      // проверка на валидность данных формы
+      //   onSubmit(){
+      //     if(this.userData.valid ){
+      //       this.authService.signUp(this.userData.value) 
+      //     }else {
+      //       console.log("Not valid") 
+      //   }
+      // }
+
+
+
 }

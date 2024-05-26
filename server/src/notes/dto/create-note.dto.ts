@@ -1,7 +1,7 @@
-import { IsNumber, IsOptional, IsString } from "class-validator"
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator"
 import { Collection } from "src/collection/entities/collection.entity"
-
 import { User } from "src/user/entities/user.entity"
+
 
 
 export class CreateNoteDto {
@@ -9,12 +9,13 @@ export class CreateNoteDto {
     @IsOptional()
     img?: string
 
+    @IsNotEmpty()
     @IsString()
     title: string
 
     @IsOptional()
     @IsNumber()
-    coordinate: number 
+    coordinate?: number 
     
     @IsOptional()
     @IsString()
@@ -23,6 +24,6 @@ export class CreateNoteDto {
     @IsOptional()
     collection?: Collection
 
-    @IsOptional()
-    user?: User
+    @IsNotEmpty()
+    user: User
 }

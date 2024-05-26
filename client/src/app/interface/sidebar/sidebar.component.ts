@@ -15,7 +15,7 @@ import { AuthService } from '../../services/auth.service';
 export class SideBarComponent {
 
 
-    isAuth = true
+    // isAuth = true
 
 
     constructor(public authService: AuthService){}

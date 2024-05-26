@@ -15,7 +15,7 @@ import { JwtAuthGuard } from './guards/jwt-auth.guard';
       return this.authService.login(req.user)
     }
 
-    @Get('profile')
+    @Get('profile')  //возврат через profile
     @UseGuards(JwtAuthGuard)
     getProfile(@Request() req) {
       return req.user

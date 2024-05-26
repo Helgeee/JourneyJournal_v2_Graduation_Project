@@ -10,15 +10,14 @@ export class NotesController {
   constructor(private readonly notesService: NotesService) {}
 
   @Post()
-  @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe)
+  @UseGuards(JwtAuthGuard)
   create(@Body() createNoteDto: CreateNoteDto , @Req() req) {
     return this.notesService.create(createNoteDto , +req.user.id );
   }
 
   @Get()
   @UseGuards(JwtAuthGuard)
-  @UsePipes(new ValidationPipe)
   findAll(@Req() req ) {
     return this.notesService.findAll( +req.user.id);
   }

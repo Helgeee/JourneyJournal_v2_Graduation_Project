@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, ValidationPipe, UsePipes, Req } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, ValidationPipe, UsePipes, Req, BadRequestException } from '@nestjs/common';
 import { CollectionService } from './collection.service';
 import { CreateCollectionDto } from './dto/create-collection.dto';
 import { UpdateCollectionDto } from './dto/update-collection.dto';
@@ -13,20 +13,25 @@ export class CollectionController {
   @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
   create(@Body() createCollectionDto: CreateCollectionDto, @Req() req) {
-    return this.collectionService.create(createCollectionDto , req.user.id )
+    const userId = +req.user.id;
+      if (isNaN(userId)) {
+          throw new BadRequestException('Invalid user id');
+  }
+    
+    return this.collectionService.create(createCollectionDto , +req.user.id ) // возврат id: user
   }
 
   @Get('')
   @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
   findAll(@Req() req) {
-    return this.collectionService.findAll(+req.user.id)
+    return this.collectionService.findAll(+req.user.id) // возврат всех коллекций (не работает )
   }
 
   @Get(':type/:id')
   @UseGuards(JwtAuthGuard, AuthorGuard )
   findOne(@Param('id') id: string) {
-    return this.collectionService.findOne(+id);
+    return this.collectionService.findOne(+id); // возврат одной коллекции(не работает )
   }
 
   @Patch(':type/:id')

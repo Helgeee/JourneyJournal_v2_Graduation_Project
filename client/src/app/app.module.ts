@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import {  BrowserAnimationsModule  }  from '@angular/platform-browser/animations';
+import {  ToastrModule  }  from  'ngx-toastr' ;
+
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -14,21 +17,29 @@ import { CreateNotesComponent } from './page/createNotes/create-notes.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './page/signup/signup.component';
 import { loginComponent } from './page/login/login.component';
-import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { NotesFormComponent } from './component/notes-form/notes-form.component';
+import { CollectionComponent } from './page/collection-Trips/collection.component';
+import { authinterceptor } from './interceptors/auth.interceptor';
+import { MiniNotesFormComponent } from './component/mini-notes-form/mini-notes-form.component';
+import { ProfileComponent } from './page/profile/profile.component';
 
 
 @NgModule({
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     FormsModule,
+    
+    CommonModule,
+    
     ReactiveFormsModule,
     HttpClientModule,
-    ToastrModule.forRoot(),
-    CommonModule
+
+    BrowserAnimationsModule,
+    ToastrModule.forRoot ( ) , 
+
+
   ],
   declarations: [
     AppComponent,
@@ -39,11 +50,21 @@ import { NotesFormComponent } from './component/notes-form/notes-form.component'
     Header,
     SettingsComponent,
     CreateNotesComponent,
-    NotesFormComponent
-
+    NotesFormComponent,
+    CollectionComponent,
+    MiniNotesFormComponent,
+    ProfileComponent
+    
+    
   ],
   
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS ,
+      useClass: authinterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

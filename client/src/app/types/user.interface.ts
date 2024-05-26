@@ -1,3 +1,5 @@
+
+//Типы при регистрации
 export interface IAuthUser {
     email: string
     username: string
@@ -5,7 +7,7 @@ export interface IAuthUser {
 }
 
 
-
+//Типы  при 
 export interface IUser {
     id: number
     email: string 
