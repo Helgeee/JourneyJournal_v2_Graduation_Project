@@ -45,7 +45,4 @@ export class NotesServise {
             this.toastr.warning('deleted')
         })
     }
-
-
-    
 }

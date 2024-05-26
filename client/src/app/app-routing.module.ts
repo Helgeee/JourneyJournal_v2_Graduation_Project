@@ -21,14 +21,12 @@ const routes: Routes = [
   {
     path: 'signup' ,
     component: SignupComponent ,
-
   },
   {
     path: 'home',
     title: 'home',
     component: HomeComponent ,
     canActivate: [ authGuard()],
-   
   },
   {
     path: 'profile',  
@@ -60,8 +58,6 @@ const routes: Routes = [
  
  
 ];
-
-
 @NgModule({
   imports: [
     RouterModule.forRoot(routes)],

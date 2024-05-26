@@ -10,13 +10,18 @@ import { NotesServise } from "../../services/note.service";
 
 export class NotesFormComponent implements OnInit {
 
-  
+
   constructor(
     readonly notesServise: NotesServise
   ){}
 
   ngOnInit(): void {
     this.notesServise.findAll()
+  }
+
+
+  deleted(id: number){
+    this.notesServise.delete(id)
   }
   
 }
