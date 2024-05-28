@@ -25,23 +25,23 @@ export class CollectionController {
   @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
   findAll(@Req() req) {
-    return this.collectionService.findAll(+req.user.id) // возврат всех коллекций (не работает )
+    return this.collectionService.findAll(+req.user.id) // возврат всех коллекций 
   }
 
-  @Get(':type/:id')
-  @UseGuards(JwtAuthGuard, AuthorGuard )
-  findOne(@Param('id') id: string) {
+  @Get(':id')
+  @UseGuards(JwtAuthGuard , AuthorGuard )
+  findOne(@Param('id')  id: string) {
     return this.collectionService.findOne(+id); // возврат одной коллекции(не работает )
   }
 
-  @Patch(':type/:id')
+  @Patch(':id')
   @UseGuards(JwtAuthGuard, AuthorGuard )
   update(
       @Param('id') id: string, 
       @Body() updateCollectionDto: UpdateCollectionDto ,
 
   ) {
-    return this.collectionService.update(+id, updateCollectionDto);
+    return this.collectionService.update(+id, updateCollectionDto); // (не работает )
   }
 
   @Delete(':type/:id')

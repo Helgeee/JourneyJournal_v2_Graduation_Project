@@ -6,14 +6,14 @@ import { Collection } from './entities/collection.entity';
 import { Repository } from 'typeorm';
 
 
-// npm start run:dev
 
 @Injectable()
 export class CollectionService {
 
   constructor(
     @InjectRepository(Collection)
-    private readonly collectionRepository: Repository<Collection>, ) {}
+    private readonly collectionRepository: Repository<Collection>,
+   ) {}
 
   //Создаёт Новую коллекцию
 
@@ -21,7 +21,7 @@ export class CollectionService {
 
     const isExist = await this.collectionRepository.findBy({
       user: { id },
-      title: createCollectionDto.title,
+      title: createCollectionDto.title
     })
 
     if(isExist.length) 
@@ -52,21 +52,22 @@ export class CollectionService {
       },
     })
     
+    
   }
 
    // поиск коллекций пользователя
 
-  async findOne(id: number) {
-    const isExist = await this.collectionRepository.findOne({
+  async findOne(id: number) { //НУжно починить
+    const collection = await this.collectionRepository.findOne({
       where: { id },
       relations: {
         user: true,
         notes: true,
       },
     })
-    console.log(isExist)
-    if(!isExist)  throw new  NotFoundException('Коллекции не найдены')
-    return isExist 
+    console.log(collection)
+    if(!collection)  throw new  NotFoundException('Коллекции не найдены')
+    return collection 
   }
 
   // обновление коллекций

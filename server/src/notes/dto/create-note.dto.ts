@@ -27,5 +27,5 @@ export class CreateNoteDto {
 
     @IsNotEmpty()
     @IsNumber()
-    user?: User
+    user: User
 }
