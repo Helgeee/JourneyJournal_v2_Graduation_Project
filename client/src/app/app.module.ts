@@ -13,16 +13,17 @@ import { HomeComponent } from './page/home/home.component';
 import { SideBarComponent } from './interface/sidebar/sidebar.component';
 import { Header } from './interface/header/header.component';
 import { SettingsComponent } from './page/settings/settings.component';
-import { CreateNotesComponent } from './page/createNotes/create-notes.component';
+import { CreateNotesComponent } from './page/create-notes/create-notes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './page/signup/signup.component';
 import { loginComponent } from './page/login/login.component';
 import { CommonModule } from '@angular/common';
 import { NotesFormComponent } from './component/notes-form/notes-form.component';
-import { CollectionComponent } from './page/collection-Trips/collection.component';
+import { CollectionComponent } from './page/collection-trips/collection.component';
 import { authinterceptor } from './interceptors/auth.interceptor';
 import { MiniNotesFormComponent } from './component/mini-notes-form/mini-notes-form.component';
 import { ProfileComponent } from './page/profile/profile.component';
+import { PrivacyPolicyComponent } from './page/privacy-policy/privacy-policy.component';
 
 
 @NgModule({
@@ -53,9 +54,8 @@ import { ProfileComponent } from './page/profile/profile.component';
     NotesFormComponent,
     CollectionComponent,
     MiniNotesFormComponent,
-    ProfileComponent
-    
-    
+    ProfileComponent,
+    PrivacyPolicyComponent,
   ],
   
   providers: [

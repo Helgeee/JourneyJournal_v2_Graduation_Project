@@ -1,21 +1,20 @@
-import { IsNotEmpty,  IsOptional} from "class-validator"
+import { IsNotEmpty,  IsNumber,  IsOptional} from "class-validator"
 import { User } from "src/user/entities/user.entity"
 
 
 export class CreateCollectionDto {
 
     @IsNotEmpty()
-    title: string
+    title: string;
 
     @IsOptional()
-    img?: string
+    img: string;
 
+    @IsNumber()
     @IsOptional()
-    user?: User
+    user: User;
+
 }
-
-
-
 // Ошибка   [Nest] 2908  - 27.04.2024, 20:34:17   ERROR [ExceptionsHandler] неверный синтаксис для типа integer: "NaN"
 // QueryFailedError: неверный синтаксис для типа integer: "NaN"
 //     at PostgresQueryRunner.query (E:\journayJournalV2_Test\server\src\driver\postgres\PostgresQueryRunner.ts:331:19)

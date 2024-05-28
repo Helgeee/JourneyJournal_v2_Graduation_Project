@@ -87,7 +87,7 @@
  
                         <li><button class="indexbar-element button indexbar-btn  " [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"   > Войти </button></li>
 
-                        <li><button class="indexbar-element button indexbar-btn "[routerLink]="['signup']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"  disabled > Регистрация </button></li>
+                        <li><button class="indexbar-element button indexbar-btn " [routerLink]="['signup']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"  disabled > Регистрация </button></li>
                         
                     </div>
 
@@ -164,7 +164,7 @@
 
                             <div class="agreePolicy ">
                                 <input (change)="updateCheckbox($event)" type="checkbox" name="checkbox"> 
-                                <a class="agreePolicy"  href=""> Согласен(а) с Политикой в отношении <br> обработки персональных данных</a> 
+                                <a class="agreePolicy" [routerLink]="['/privacy-policy']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}"  > Согласен(а) с Политикой в отношении <br> обработки персональных данных</a> 
                             </div>
 
                             <div class="index__minititle " >

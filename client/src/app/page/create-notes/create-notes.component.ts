@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Title } from "@angular/platform-browser";
+
 import { NotesServise } from "../../services/note.service";
 import { CollectionService } from "../../services/collection.service";
 

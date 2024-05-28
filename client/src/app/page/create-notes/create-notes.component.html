@@ -42,8 +42,9 @@
         <input id="coordinates" type="number" class="notes-coordinates" placeholder="Введите координаты..." >
 
         <select required class="notes-select" formControlName="collection" placeholder="Введите координаты...">
-          <!-- <option *ngFor="let collection of this.collectionService.collectionsSig()"
-          value="{{collection.id}}"> {{collection.title}}</option> -->
+          <option *ngFor="let collection of this.collectionService.collectionsSig()"
+          value="{{collection.id}}"> {{collection.title}}</option>
+          <option value="1">Поездка1</option>
 
         </select>
       

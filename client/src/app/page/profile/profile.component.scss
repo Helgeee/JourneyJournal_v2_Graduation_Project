@@ -31,12 +31,18 @@
         // color: $primaryColor;
     }
     &__statist  {
-        max-width: 412px;
-        grid-template-columns: 130px 150px 130px;
-        column-gap: 10px;
+        max-width: 400px;
+        grid-template-columns: 120px 140px 120px;
+        column-gap: 5px;
         flex-direction: row;
         justify-content: center;
         display: grid;
+
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 133%;
+        letter-spacing: 0.02em;
+        color: #61646b;
         // color: $textColor;
     }
     &__buttons{
@@ -47,12 +53,28 @@
         display: grid;
         
     }
-    &__title{
+    &__bigtitle{
         margin-top: 10px;
         text-align: center;
         // color: $primaryColor;
         text-transform: uppercase;
     }
+    &-stattitle{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 133%;
+        letter-spacing: 0.02em;
+        color: #61646b;
+      }
+      
+    &-title{
+        font-weight: 500;
+        color: rgba(73, 40, 109, 1);
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 100%;
+        letter-spacing: 0.01em;
+      }
     
     
 }
@@ -80,3 +102,6 @@
     justify-content: center;
     display: flex;
 }
+
+
+

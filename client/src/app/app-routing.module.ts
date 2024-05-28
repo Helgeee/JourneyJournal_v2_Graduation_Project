@@ -5,18 +5,23 @@ import { ProfileComponent } from './page/profile/profile.component';
 import { MyEmptyPage } from './page/empty-route/empty-route.component';
 
 import { SettingsComponent } from './page/settings/settings.component';
-import { CreateNotesComponent } from './page/createNotes/create-notes.component';
+import { CreateNotesComponent } from './page/create-notes/create-notes.component';
 import { loginComponent } from './page/login/login.component';
 import { SignupComponent } from './page/signup/signup.component';
 import { authGuard } from './guards/auth.guard';
-import { CollectionComponent } from './page/collection-Trips/collection.component';
-import { MiniNotesFormComponent } from './component/mini-notes-form/mini-notes-form.component';
+import { CollectionComponent } from './page/collection-trips/collection.component';
+import { PrivacyPolicyComponent } from './page/privacy-policy/privacy-policy.component';
 
 
 const routes: Routes = [
   {
     path: '',  
     component: loginComponent ,
+  },
+  {
+    path: 'privacy-policy',
+    title: '/privacy-policy',
+    component: PrivacyPolicyComponent,
   },
   {
     path: 'signup' ,
@@ -53,7 +58,8 @@ const routes: Routes = [
     path: '**',
     component: MyEmptyPage,
     canActivate: [ authGuard()],
-  }, 
+  },
+
   
  
  
