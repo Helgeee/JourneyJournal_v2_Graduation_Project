@@ -1,7 +1,11 @@
 
 
 
-<div class="create-notes">
+<form 
+  class="create-notes"
+  [formGroup]="notesForm"
+  (ngSubmit)="onSubmit()"
+  >
 
 
     <div class="ribbon__buttons">
@@ -37,29 +41,52 @@
       
       
       <div>
-        <input id="note-title"  class="notes-title" type="text" placeholder="Введите название заметки...">
+        <input 
+          id="note-title"  
+          class="notes-title" 
+          type="text" 
+          placeholder="Введите название заметки..."
+          required
+          formControlName="title">
                
-        <input id="coordinates" type="number" class="notes-coordinates" placeholder="Введите координаты..." >
+        <input 
+          id="coordinate" 
+          type="number" 
+          class="notes-coordinates" 
+          placeholder="Введите координаты..."
+          formControlName="coordinate">
 
-        <select required class="notes-select" formControlName="collection" placeholder="Введите координаты...">
-          <option *ngFor="let collection of this.collectionService.collectionsSig()"
-          value="{{collection.id}}"> {{collection.title}}</option>
-          <option value="1">Поездка1</option>
-
+        <select 
+          class="notes-select"
+          placeholder="Выберите поездку..."
+          formControlName="collection" >
+            <option
+            *ngFor="let collection of this.collectionService.collectionsSig()"
+            value="{{collection.id}}"> {{collection.title}} </option>
         </select>
-      
       </div>
       
 
 
-      <textarea id="note-text" class="notes-text" type="text" placeholder="Введите текст..."></textarea>
+      <textarea 
+        id="note-text" 
+        class="notes-text" 
+        type="text" 
+        placeholder="Введите текст..."
+        formControlName="text"
+      > </textarea>
 
-     <button  class="button main centre ">Создать заметку</button>
+    <button  
+      type="submit" 
+      class="button main centre"
+      [disabled]="!this.notesForm.valid">
+      Создать заметку
+    </button>
 
                     
 
     </div>
-</div>
+</form>
 
 
  

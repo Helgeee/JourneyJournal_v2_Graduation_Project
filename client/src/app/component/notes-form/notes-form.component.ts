@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { NotesServise } from "../../services/note.service";
+import { NotesService } from "../../services/note.service";
+
 
 @Component({
   selector: 'app-notes-form',
@@ -11,17 +12,17 @@ import { NotesServise } from "../../services/note.service";
 export class NotesFormComponent implements OnInit {
 
 
-  constructor(
-    readonly notesServise: NotesServise
-  ){}
+    constructor(
+      readonly notesService: NotesService
+    ){}
 
-  ngOnInit(): void {
-    this.notesServise.findAll()
-  }
+    ngOnInit(): void {
+      this.notesService.findAll()
+    }
 
 
-  deleted(id: number){
-    this.notesServise.delete(id)
-  }
+    deleted(id: number){
+      this.notesService.delete(id)
+    }
   
 }

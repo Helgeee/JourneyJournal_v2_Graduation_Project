@@ -33,13 +33,25 @@
                     
                     class="trips-tripsbtn"
                     [disabled]="!this.collectionForm.valid">
-                    
-                    <svg width="55" height="55" viewBox="0 0 63 63" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="2" y="2" width="59" height="59" rx="29.5" stroke="white" stroke-width="2.59599"/>
-                        <path d="M30.9999 10.2321V51.7681M51.7679 31.0001H10.2319" stroke="white" stroke-width="5.19199" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <span *ngIf="method === 'create' ">cr</span>
-                    <span *ngIf="method === 'update' ">up</span>
+                
+                    <span *ngIf="method === 'create' ">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_177_4104)">
+                            <path d="M12 4V20M20 12H3.99998" stroke="#49286D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                        </svg>
+                        <label> Create </label>
+                    </span>
+
+                    <span *ngIf="method === 'update' ">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_177_4078)">
+                            <path d="M16.3643 4.13578C16.6928 3.80722 16.8571 3.64294 17.0209 3.5335C17.6935 3.08409 18.5706 3.08409 19.2432 3.5335C19.407 3.64294 19.5713 3.80722 19.8998 4.13578V4.13578C20.2284 4.46434 20.3927 4.62862 20.5021 4.79241C20.9515 5.46501 20.9515 6.34209 20.5021 7.01469C20.3927 7.17848 20.2284 7.34276 19.8998 7.67132L9.06621 18.5049C8.80167 18.7695 8.6694 18.9017 8.5159 19.0067C8.3624 19.1117 8.19118 19.1871 7.84874 19.3378L6.92948 19.7422C4.94294 20.6163 3.94967 21.0533 3.46596 20.5696C2.98226 20.0859 3.41929 19.0927 4.29337 17.1061L4.69784 16.1869C4.84852 15.8444 4.92385 15.6732 5.02886 15.5197C5.13386 15.3662 5.26613 15.2339 5.53068 14.9694L16.3643 4.13578Z" stroke="#49286D" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M13.6213 6.84314L17.1569 10.3787" stroke="#49286D" stroke-width="2"/>
+                            </g>
+                        </svg>
+                        <label > Update </label>    
+                    </span>
                 </button>         
         </form> 
 

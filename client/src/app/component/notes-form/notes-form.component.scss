@@ -7,16 +7,16 @@
     justify-content: center;
     
     padding: 20px;
-       
-  &-contents {
-    text-align: center;
-  }
+      
+ 
   &-form{
+    display: inline-block;
     border: 2px solid #efeff0;
     border-radius: 12px;
     padding: 8px 8px 12px 8px;
-    width: 364px;
+    width: 350px;
     height: 270px;
+    margin: 10px;
   }
   &-form-header{
     display: flex;
@@ -100,6 +100,18 @@
   }
   &-form-starbtn:active svg {
     fill:rgba(155, 81, 224, 1);  /* Цвет  если нужно изменить */
+  }
+
+
+  &-ribbon{
+    display: grid;
+    
+   
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    place-items: center;
+                background: none;
+    
   }
   
 

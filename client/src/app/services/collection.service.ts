@@ -3,13 +3,9 @@ import { Injectable, signal } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 import { ICollection } from "../types/collection.interface";
 
-
-
-
 @Injectable({
     providedIn: 'root',
 })
-
 
 export class CollectionService {
 
@@ -17,7 +13,7 @@ export class CollectionService {
 
     constructor(
         private readonly http: HttpClient,
-        private readonly toastr: ToastrService) {}
+        private readonly toastr: ToastrService ) {}
 
     findAll() {
         return this.http
@@ -32,22 +28,22 @@ export class CollectionService {
         return this.http
             .post<ICollection>('collection', { title })
             .subscribe((newCollection: ICollection) => {
-                this.collectionsSig.update( (collections) => [...collections , newCollection] )
-                this.toastr.success('created')
+                this.collectionsSig.update( (collections) => [  newCollection , ...collections ] )
+                this.toastr.success('Поездка создана')
             })
     }
 
 
     
-        update(id: number, title: string) {
-            this.http.patch(`collection/collection/${id}`, { title }).subscribe(() => {
-                this.collectionsSig.update((collections) =>
-                    collections.map((collection) =>
-                        (collection.id === id ? { ...collection, title } : collection))
-                  )
-                this.toastr.success('updated')
-            })
-        }
+    update(id: number, title: string) {
+        this.http.patch(`collection/collection/${id}`, { title }).subscribe(() => {
+            this.collectionsSig.update((collections) =>
+                collections.map((collection) =>
+                    (collection.id === id ? { ...collection, title } : collection))
+                )
+            this.toastr.success('updated')
+        })
+    }
 
 
 

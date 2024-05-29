@@ -20,7 +20,8 @@
           
 
               <div class="profile-username profile-title">
-                      Jotaro 
+                  <!-- {{ user.username }}  -->
+                  username
               </div>
 
           
@@ -52,7 +53,7 @@
 
 
           <div class="profile__buttons">
-            <button class="  button mini "  > Настроить профиль </button> 
+            <button class="  button mini " [routerLink]="['/settings']" > Настроить профиль </button> 
             <button  class=" button mini button-map "> 
               <label > Моя карта</label>
               <svg width="25" height="25" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">

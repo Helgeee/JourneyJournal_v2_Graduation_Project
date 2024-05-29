@@ -44,7 +44,7 @@ export class CollectionController {
     return this.collectionService.update(+id, updateCollectionDto); // (не работает )
   }
 
-  @Delete(':type/:id')
+  @Delete(':id')
   @UseGuards(JwtAuthGuard, AuthorGuard)
   @UsePipes(new ValidationPipe())
   remove(@Param('id') id: string) {
