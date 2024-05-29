@@ -20,7 +20,7 @@ import { loginComponent } from './page/login/login.component';
 import { CommonModule } from '@angular/common';
 import { NotesFormComponent } from './component/notes-form/notes-form.component';
 import { CollectionComponent } from './page/collection-trips/collection.component';
-import { authinterceptor } from './interceptors/auth.interceptor';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { MiniNotesFormComponent } from './component/mini-notes-form/mini-notes-form.component';
 import { ProfileComponent } from './page/profile/profile.component';
 import { PrivacyPolicyComponent } from './page/privacy-policy/privacy-policy.component';
@@ -61,8 +61,8 @@ import { PrivacyPolicyComponent } from './page/privacy-policy/privacy-policy.com
   providers: [
     {
       provide: HTTP_INTERCEPTORS ,
-      useClass: authinterceptor,
-      multi: true
+      useClass: AuthInterceptor ,
+      multi: true,
     }
   ],
   bootstrap: [AppComponent]

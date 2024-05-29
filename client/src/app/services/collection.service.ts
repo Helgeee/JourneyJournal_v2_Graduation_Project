@@ -40,13 +40,11 @@ export class CollectionService {
 
     
         update(id: number, title: string) {
-            this.http.patch(`collections/collection/${id}`, { title }).subscribe(() => {
+            this.http.patch(`collection/collection/${id}`, { title }).subscribe(() => {
                 this.collectionsSig.update((collections) =>
-                    collections.map((ctg) =>
-                        ctg.id === id ? { ...ctg, title } : ctg
-                    )
-                    
-                )
+                    collections.map((collection) =>
+                        (collection.id === id ? { ...collection, title } : collection))
+                  )
                 this.toastr.success('updated')
             })
         }

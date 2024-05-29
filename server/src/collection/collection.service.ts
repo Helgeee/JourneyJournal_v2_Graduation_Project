@@ -33,7 +33,7 @@ export class CollectionService {
         img: createCollectionDto.img,
         user: { 
          id: id , 
-        }, //присваивание id пользователя к коллекции (не работает)
+        }, //присваивание id пользователя к коллекции 
       }
       console.log(newCollection)
 

@@ -13,11 +13,12 @@ export class CollectionComponent  implements OnInit {
   
   collectionId : number = 0
   title: string =''
+  method : 'create' | 'update' = 'create'
 
 
   constructor(public collectionService: CollectionService){
     this.collectionForm = new FormGroup({
-      title: new FormControl('' , [Validators.required]),
+      title: new FormControl( '' , [Validators.required]),
     })
     
   }
@@ -27,33 +28,31 @@ export class CollectionComponent  implements OnInit {
   }
 
   onSubmit(){
-    // && this.method === 'create'
-    if(this.collectionForm.valid ) {
+   
+    if(this.collectionForm.valid   && this.method === 'create' ) {
         console.log(this.collectionForm.value)
         this.collectionService.create(this.collectionForm.value.title)
-        this.collectionForm.reset
+        this.collectionForm.reset()
     } else {
-      // this.update()
-      // this.collectionFormForm.reset()
-      // this.method = 'created'
+        this.update()
+        this.collectionForm.reset()
+        this.method = 'create'
     }
   }
 
-  update(id: number , title: string){
+  update(){
     this.collectionService.update(this.collectionId , this.collectionForm.value.title)
   }
 
   edit(id: number , title: string) {
     this.collectionId = id 
-    this.collectionForm.setValue({title}) 
+    this.collectionForm.setValue({ title }) 
+    this.method = 'update'
 
   }
 
   delete(id: number) {
-  this.collectionService.delete(id)
+    this.collectionService.delete(id)
   }
-
-
-  
 
 }
