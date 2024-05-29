@@ -20,17 +20,15 @@ $frameСolor: rgba(175, 177, 182, 1);
 // }
 
 @layer ribbon {
-    // body{
-
-    // }
-    // td{
-
-    // }
+  .notes-ribbon{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    place-items: center;
+  }
 }
+
 @layer components {
-
-
-  
         // стили кнопок 
         .button{
             border-radius: 50px;

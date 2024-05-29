@@ -18,21 +18,21 @@ export class NotesService {
 
 /// создание заметки 
 
-  async create(createNoteDto: CreateNoteDto , id: number) { ///проверить
+  async create(createNoteDto: CreateNoteDto , id: number) { 
 
     const newNote = {
+      user: { id },
       img: createNoteDto.img,
       title: createNoteDto.title ,
       coordinate:  createNoteDto.coordinate,
       text: createNoteDto.text,
-      user: { id },
-
       collection: { id: createNoteDto.collection } , 
     }
+    console.log(newNote)
+
+    if(!newNote) throw new BadRequestException(' Что-то пошло не так... ')  
 
     console.log(createNoteDto)
-
-    if(!newNote) throw new BadRequestException(' Что-то пошло не так... ')
 
     return await this.notesRepository.save(newNote) 
 
@@ -99,23 +99,23 @@ export class NotesService {
 
 
 
-  // //пагинация
-  // async findAllWithPagination( id: number , page: number , limit: number) {
-  //   const notes = await this.notesRepository.find({
-  //     where: {
-  //       user: { id } ,
-  //     },
-  //     relations:{
-  //       user: true,
-  //     },
-  //     order: {
-  //       createdAt: "DESC",
-  //     },
-  //     take: limit ,
-  //     skip: (page - 1 ) * limit,
-  //   })
-  //   return notes;
-  // }
+  //пагинация
+  async findAllWithPagination( id: number , page: number , limit: number) {
+    const notes = await this.notesRepository.find({
+      where: {
+        user: { id } ,
+      },
+      relations:{
+        user: true,
+      },
+      order: {
+        createdAt: "DESC",
+      },
+      take: limit ,
+      skip: (page - 1 ) * limit,
+    })
+    return notes;
+  }
 
 
   

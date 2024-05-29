@@ -25,7 +25,7 @@ export class CreateNoteDto {
     @IsNumber()
     collection?: Collection
 
-    @IsNotEmpty()
+    @IsOptional()
     @IsNumber()
-    user: User
+    user?: User
 }

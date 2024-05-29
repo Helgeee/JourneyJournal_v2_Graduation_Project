@@ -5,6 +5,7 @@
     width: 240px;
     height: 200px;
     border: 2px solid #efeff0;
+    margin: 10px;
     
    
     &-coordinates{
@@ -61,7 +62,11 @@
     }
     &-starbtn:active svg {
       fill:rgba(155, 81, 224, 1);  /* Цвет  если нужно изменить */
-    }
+    } 
+
+
+    
     
 
 }
+

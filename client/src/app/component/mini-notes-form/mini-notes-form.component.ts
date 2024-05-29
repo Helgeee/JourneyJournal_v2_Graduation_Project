@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component , } from "@angular/core";
+import { NotesService } from "../../services/note.service";
 
 
 @Component({
@@ -8,7 +9,18 @@ import { Component } from "@angular/core";
 })
 
 
-export class MiniNotesFormComponent {
+export class MiniNotesFormComponent  {
   
- 
+  constructor(
+    readonly NotesService: NotesService
+  ){}
+
+  ngOnInit(): void {
+    this.NotesService.findAll()
+  }
+
+
+  deleted(id: number){
+    this.NotesService.delete(id)
+  }
 }

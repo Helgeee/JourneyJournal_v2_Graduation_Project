@@ -60,7 +60,7 @@
           class="notes-select"
           placeholder="Выберите поездку..."
           formControlName="collection" >
-            <option
+          <option
             *ngFor="let collection of this.collectionService.collectionsSig()"
             value="{{collection.id}}"> {{collection.title}} </option>
         </select>
