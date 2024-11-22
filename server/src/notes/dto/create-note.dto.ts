@@ -14,8 +14,7 @@ export class CreateNoteDto {
     title: string
 
     @IsOptional()
-    @IsNumber()
-    coordinate?: number 
+    coordinate?: string
     
     @IsOptional()
     @IsString()

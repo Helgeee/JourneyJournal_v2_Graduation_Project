@@ -9,16 +9,12 @@ export class Collection {
     
     @PrimaryGeneratedColumn( { name: 'collection_id'})
     id: number
-
     @Column()
     title: string
-
     @Column({ name: 'img_collection' , nullable : true })
     img: string
-
     @CreateDateColumn()
     createdAt: Date
-
     @UpdateDateColumn()
     updateAt: Date
 

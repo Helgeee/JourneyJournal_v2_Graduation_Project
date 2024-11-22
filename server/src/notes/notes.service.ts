@@ -5,42 +5,31 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Note } from './entities/note.entity';
 import { Repository } from 'typeorm';
 
-
-
-
 @Injectable()
 export class NotesService {
-
   constructor(
     @InjectRepository(Note)
     private readonly notesRepository: Repository<Note>,
   ) {}
-
 /// создание заметки 
-
   async create(createNoteDto: CreateNoteDto , id: number) { 
-
     const newNote = {
-      user: { id },
+      user: { 
+        id: id 
+      },
       img: createNoteDto.img,
       title: createNoteDto.title ,
       coordinate:  createNoteDto.coordinate,
       text: createNoteDto.text,
       collection: { id: createNoteDto.collection } , 
     }
-    console.log(newNote)
-
     if(!newNote) throw new BadRequestException(' Что-то пошло не так... ')  
 
     console.log(createNoteDto)
 
     return await this.notesRepository.save(newNote) 
-
    }
-
-
   // поиск заметок
-
   async  findAll(id: number) {
     const notes = await this.notesRepository.find({
       where: {
@@ -50,13 +39,9 @@ export class NotesService {
         createdAt:'DESC',
       },
     })
-   
     return notes ;
   }
-
-
 // поиск заметки
-
   async  findOne(id: number) {
 
     const notes = await this.notesRepository.findOne({
@@ -70,9 +55,7 @@ export class NotesService {
     if(!notes)  throw new NotFoundException('Что-то пошло не так...')
     return notes;
   }
-
 //Обновление заметки
-
   async  update(id: number, updateNoteDto: UpdateNoteDto) {
     const notes = await this.notesRepository.findOne({
     where: { id },
@@ -82,10 +65,7 @@ export class NotesService {
   return await this.notesRepository.update( id , updateNoteDto ) ; 
     
   }
-
-
 // удаление заметки
-
   async  remove(id: number) {
     const notes = await this.notesRepository.findOne({
       where: {
@@ -96,9 +76,6 @@ export class NotesService {
 
     return await this.notesRepository.delete(id)
   }
-
-
-
   //пагинация
   async findAllWithPagination( id: number , page: number , limit: number) {
     const notes = await this.notesRepository.find({
@@ -116,10 +93,6 @@ export class NotesService {
     })
     return notes;
   }
-
-
-  
-
 }
 
 

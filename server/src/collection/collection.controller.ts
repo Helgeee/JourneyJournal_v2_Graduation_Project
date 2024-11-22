@@ -8,7 +8,7 @@ import { AuthorGuard } from 'src/guard/author.guard';
 @Controller('collection')
 export class CollectionController {
   constructor(private readonly collectionService: CollectionService) {}
-
+ // Создание новой коллекции
   @Post()
   @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
@@ -17,23 +17,23 @@ export class CollectionController {
       if (isNaN(userId)) {
           throw new BadRequestException('Invalid user id');
   }
-    
+    // Создание новой коллекции
     return this.collectionService.create(createCollectionDto , +req.user.id ) // возврат id: user
   }
-
+ // Получение всех коллекций
   @Get('')
   @UseGuards(JwtAuthGuard)
   @UsePipes(new ValidationPipe())
   findAll(@Req() req) {
     return this.collectionService.findAll(+req.user.id) // возврат всех коллекций 
   }
-
+// Получение одной коллекции по идентификатору
   @Get(':id')
   @UseGuards(JwtAuthGuard , AuthorGuard )
   findOne(@Param('id')  id: string) {
     return this.collectionService.findOne(+id); // возврат одной коллекции(не работает )
   }
-
+// Обновление коллекции по идентификатору
   @Patch(':id')
   @UseGuards(JwtAuthGuard, AuthorGuard )
   update(
@@ -41,9 +41,9 @@ export class CollectionController {
       @Body() updateCollectionDto: UpdateCollectionDto ,
 
   ) {
-    return this.collectionService.update(+id, updateCollectionDto); // (не работает )
+    return this.collectionService.update(+id, updateCollectionDto); // Обновление коллекции (не работает)
   }
-
+// Удаление коллекции по идентификатору
   @Delete(':id')
   @UseGuards(JwtAuthGuard, AuthorGuard)
   @UsePipes(new ValidationPipe())

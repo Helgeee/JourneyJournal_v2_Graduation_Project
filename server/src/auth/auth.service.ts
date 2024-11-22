@@ -10,9 +10,7 @@ export class AuthService {
     private  readonly usersService : UserService , 
     private readonly jwtService: JwtService,
    ) {}
-
-   //  `validateUser` асинхронно проверяет аутентификационные данные в базе данных
-
+   //  проверка аутентификационные данные в базе данных
    async validateUser(email: string, password: string) {
     const user = await this.usersService.findOne(email)
     const passwordIsMatch = await argon2.verify( user.password, password )
@@ -22,10 +20,7 @@ export class AuthService {
     }
     throw new UnauthorizedException('User or password are incorrect!')
   }
-  
-
   //функция для аутентификации пользователя. 
-
   async login(user: IUser){
     const {id , email} = user
     return {

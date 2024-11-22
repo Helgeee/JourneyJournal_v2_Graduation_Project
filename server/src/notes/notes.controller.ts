@@ -9,6 +9,9 @@ import { AuthorGuard } from 'src/guard/author.guard';
 export class NotesController {
   constructor(private readonly notesService: NotesService) {}
 
+  // POST-метод для создания новой заметки
+// Используется ValidationPipe для валидации данных
+// Используется JwtAuthGuard для авторизации
   @Post()
   @UsePipes(new ValidationPipe)
   @UseGuards(JwtAuthGuard)

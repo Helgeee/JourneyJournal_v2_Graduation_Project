@@ -35,12 +35,10 @@ export class CollectionService {
          id: id , 
         }, //присваивание id пользователя к коллекции 
       }
-      console.log(newCollection)
 
     return await this.collectionRepository.save(newCollection)
     
   }
-
   // поиск всех коллекций пользователя
   async findAll(id: number) {
     return await this.collectionRepository.find({
@@ -54,10 +52,8 @@ export class CollectionService {
     
     
   }
-
    // поиск коллекций пользователя
-
-  async findOne(id: number) { //НУжно починить
+  async findOne(id: number) { 
     const collection = await this.collectionRepository.findOne({
       where: { id },
       relations: {

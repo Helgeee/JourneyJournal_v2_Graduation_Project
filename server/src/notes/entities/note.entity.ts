@@ -18,8 +18,8 @@ export class Note {
     @Column( { nullable: true } )
     title: string
 
-    @Column({  nullable: true })
-    coordinate: number 
+    @Column({   nullable: true })
+    coordinate: string
 
     @Column({  nullable: true })
     text: string
